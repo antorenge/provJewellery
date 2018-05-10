@@ -16,11 +16,11 @@ export class AppComponent {
   }
 
   onReady = () => {
-    this.web3Service.getAccounts().subscribe(accs => {
-      this.accounts = accs;
-      this.account = this.accounts[0];
+    // this.web3Service.getAccounts().subscribe(accs => {
+    //   this.accounts = accs;
+    //   this.account = this.accounts[0];
 
-      // this._ngZone.run(() => )
-    }, error => console.log(error));
+    //   // this._ngZone.run(() => )
+    // }, error => console.log(error));
   }
 }
