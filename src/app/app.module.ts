@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Web3Service } from './services/web3.service';
+import { ProductProfileComponent } from './product-profile/product-profile.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductProfileComponent
   ],
   imports: [
     BrowserModule,
