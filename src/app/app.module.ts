@@ -11,13 +11,15 @@ import { SuiModule } from 'ng2-semantic-ui';
 import { Web3Service } from './services/web3.service';
 import { ProductProfileComponent } from './product-profile/product-profile.component';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductProfileComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
