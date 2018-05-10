@@ -22,6 +22,7 @@
       "assets/semantic/dist/semantic.min.css"
     ],
     "scripts": [
+      "../node_modules/jquery/dist/jquery.min.js",
       "assets/semantic/dist/semantic.min.js"
     ],
     "environmentSource": "environments/environment.ts",
