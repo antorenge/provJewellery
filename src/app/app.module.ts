@@ -9,17 +9,18 @@ import { AppRoutes } from './app.routes';
 import { SuiModule } from 'ng2-semantic-ui';
 
 import { Web3Service } from './services/web3.service';
-import { ProductProfileComponent } from './product-profile/product-profile.component';
+import { ProductDesignService } from './services/product-design.service';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProductDesignComponent } from './product-design/product-design.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductProfileComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductDesignComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SuiModule
   ],
   providers: [
-    Web3Service
+    Web3Service,
+    ProductDesignService
   ],
   bootstrap: [AppComponent]
 })
