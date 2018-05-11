@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CloudService {
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
+
+
 
 }
