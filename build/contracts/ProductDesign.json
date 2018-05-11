@@ -1,0 +1,1453 @@
+{
+  "contractName": "ProductDesign",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_sku",
+          "type": "string"
+        },
+        {
+          "name": "_signedDesign",
+          "type": "string"
+        }
+      ],
+      "name": "createDesign",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "sku",
+          "type": "string"
+        }
+      ],
+      "name": "getDesign",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061064a806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063082f4037146100515780630d18064b14610179575b600080fd5b34801561005d57600080fd5b506100fe600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061025b565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013e578082015181840152602081019050610123565b50505050905090810190601f16801561016b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561018557600080fd5b506101e0600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610469565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610220578082015181840152602081019050610205565b50505050905090810190601f16801561024d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6060336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040805190810160405280848152602001838152506001846040518082805190602001908083835b6020831015156102ea57805182526020820191506020810190506020830392506102c5565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206000820151816000019080519060200190610339929190610579565b506020820151816001019080519060200190610356929190610579565b509050506001836040518082805190602001908083835b602083101515610392578051825260208201915060208101905060208303925061036d565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206000018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561045c5780601f106104315761010080835404028352916020019161045c565b820191906000526020600020905b81548152906001019060200180831161043f57829003601f168201915b5050505050905092915050565b60606001826040518082805190602001908083835b6020831015156104a3578051825260208201915060208101905060208303925061047e565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561056d5780601f106105425761010080835404028352916020019161056d565b820191906000526020600020905b81548152906001019060200180831161055057829003601f168201915b50505050509050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105ba57805160ff19168380011785556105e8565b828001600101855582156105e8579182015b828111156105e75782518255916020019190600101906105cc565b5b5090506105f591906105f9565b5090565b61061b91905b808211156106175760008160009055506001016105ff565b5090565b905600a165627a7a723058200b2ca1a5f2460812ea0c56b121854bfd9be15a7f5283c58f8d488819da9bd4e20029",
+  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063082f4037146100515780630d18064b14610179575b600080fd5b34801561005d57600080fd5b506100fe600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061025b565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013e578082015181840152602081019050610123565b50505050905090810190601f16801561016b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561018557600080fd5b506101e0600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610469565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610220578082015181840152602081019050610205565b50505050905090810190601f16801561024d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6060336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040805190810160405280848152602001838152506001846040518082805190602001908083835b6020831015156102ea57805182526020820191506020810190506020830392506102c5565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206000820151816000019080519060200190610339929190610579565b506020820151816001019080519060200190610356929190610579565b509050506001836040518082805190602001908083835b602083101515610392578051825260208201915060208101905060208303925061036d565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206000018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561045c5780601f106104315761010080835404028352916020019161045c565b820191906000526020600020905b81548152906001019060200180831161043f57829003601f168201915b5050505050905092915050565b60606001826040518082805190602001908083835b6020831015156104a3578051825260208201915060208101905060208303925061047e565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561056d5780601f106105425761010080835404028352916020019161056d565b820191906000526020600020905b81548152906001019060200180831161055057829003601f168201915b50505050509050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105ba57805160ff19168380011785556105e8565b828001600101855582156105e8579182015b828111156105e75782518255916020019190600101906105cc565b5b5090506105f591906105f9565b5090565b61061b91905b808211156106175760008160009055506001016105ff565b5090565b905600a165627a7a723058200b2ca1a5f2460812ea0c56b121854bfd9be15a7f5283c58f8d488819da9bd4e20029",
+  "sourceMap": "26:500:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:500:1;;;;;;;",
+  "deployedSourceMap": "26:500:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;190:224;;8:9:-1;5:2;;;30:1;27;20:12;5:2;190:224:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;190:224:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;420:103;;8:9:-1;5:2;;;30:1;27;20:12;5:2;420:103:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;420:103:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;190:224;263:6;293:10;281:9;;:22;;;;;;;;;;;;;;;;;;329:44;;;;;;;;;343:4;329:44;;;;357:13;329:44;;;313:7;321:4;313:13;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;313:13:1;;;;;;;;;;;;;;;;;;;;;:60;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;390:7;398:4;390:13;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;390:13:1;;;;;;;;;;;;;;;;;;;;;:17;;383:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;190:224;;;;:::o;420:103::-;472:6;497:7;505:3;497:12;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;497:12:1;;;;;;;;;;;;;;;;;;;;;:19;;490:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;420:103;;;:::o;26:500::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract ProductDesign {\n\n    struct Design {\n        string sku;\n        string design;\n    }\n\n    address createdBy;\n\n    mapping(string => Design) designs;\n\n    function createDesign(string _sku, string _signedDesign) public returns (string) {\n        createdBy = msg.sender;\n        designs[_sku] = Design({ sku: _sku, design: _signedDesign });\n        return designs[_sku].sku;\n    }\n\n    function getDesign(string sku) public view returns (string) {\n        return designs[sku].design;\n    }\n\n}",
+  "sourcePath": "/home/antoroko/Desktop/Thesis/project/provJewellery/contracts/ProductDesign.sol",
+  "ast": {
+    "absolutePath": "/home/antoroko/Desktop/Thesis/project/provJewellery/contracts/ProductDesign.sol",
+    "exportedSymbols": {
+      "ProductDesign": [
+        112
+      ]
+    },
+    "id": 113,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 112,
+        "linearizedBaseContracts": [
+          112
+        ],
+        "name": "ProductDesign",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ProductDesign.Design",
+            "id": 63,
+            "members": [
+              {
+                "constant": false,
+                "id": 60,
+                "name": "sku",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "80:10:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 59,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "80:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 62,
+                "name": "design",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "100:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 61,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "100:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Design",
+            "nodeType": "StructDefinition",
+            "scope": 112,
+            "src": "56:64:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 65,
+            "name": "createdBy",
+            "nodeType": "VariableDeclaration",
+            "scope": 112,
+            "src": "126:17:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 64,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "126:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 69,
+            "name": "designs",
+            "nodeType": "VariableDeclaration",
+            "scope": 112,
+            "src": "150:33:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+              "typeString": "mapping(string => struct ProductDesign.Design)"
+            },
+            "typeName": {
+              "id": 68,
+              "keyType": {
+                "id": 66,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "158:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "150:25:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                "typeString": "mapping(string => struct ProductDesign.Design)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 67,
+                "name": "Design",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 63,
+                "src": "168:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Design_$63_storage_ptr",
+                  "typeString": "struct ProductDesign.Design"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 97,
+              "nodeType": "Block",
+              "src": "271:143:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 81,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 78,
+                      "name": "createdBy",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 65,
+                      "src": "281:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 79,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 127,
+                        "src": "293:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 80,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "293:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "281:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 82,
+                  "nodeType": "ExpressionStatement",
+                  "src": "281:22:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 90,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 83,
+                        "name": "designs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 69,
+                        "src": "313:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                          "typeString": "mapping(string memory => struct ProductDesign.Design storage ref)"
+                        }
+                      },
+                      "id": 85,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 84,
+                        "name": "_sku",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 71,
+                        "src": "321:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "313:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_storage",
+                        "typeString": "struct ProductDesign.Design storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 87,
+                          "name": "_sku",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 71,
+                          "src": "343:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 88,
+                          "name": "_signedDesign",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 73,
+                          "src": "357:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 86,
+                        "name": "Design",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "329:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Design_$63_storage_ptr_$",
+                          "typeString": "type(struct ProductDesign.Design storage pointer)"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [
+                        "sku",
+                        "design"
+                      ],
+                      "nodeType": "FunctionCall",
+                      "src": "329:44:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_memory",
+                        "typeString": "struct ProductDesign.Design memory"
+                      }
+                    },
+                    "src": "313:60:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Design_$63_storage",
+                      "typeString": "struct ProductDesign.Design storage ref"
+                    }
+                  },
+                  "id": 91,
+                  "nodeType": "ExpressionStatement",
+                  "src": "313:60:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 92,
+                        "name": "designs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 69,
+                        "src": "390:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                          "typeString": "mapping(string memory => struct ProductDesign.Design storage ref)"
+                        }
+                      },
+                      "id": 94,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 93,
+                        "name": "_sku",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 71,
+                        "src": "398:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "390:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_storage",
+                        "typeString": "struct ProductDesign.Design storage ref"
+                      }
+                    },
+                    "id": 95,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sku",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 60,
+                    "src": "390:17:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 77,
+                  "id": 96,
+                  "nodeType": "Return",
+                  "src": "383:24:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 98,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "createDesign",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "name": "_sku",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 98,
+                  "src": "212:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "212:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 73,
+                  "name": "_signedDesign",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 98,
+                  "src": "225:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "225:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "211:35:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 76,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 98,
+                  "src": "263:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "263:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "262:8:1"
+            },
+            "scope": 112,
+            "src": "190:224:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 110,
+              "nodeType": "Block",
+              "src": "480:43:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 105,
+                        "name": "designs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 69,
+                        "src": "497:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                          "typeString": "mapping(string memory => struct ProductDesign.Design storage ref)"
+                        }
+                      },
+                      "id": 107,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 106,
+                        "name": "sku",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100,
+                        "src": "505:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "497:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_storage",
+                        "typeString": "struct ProductDesign.Design storage ref"
+                      }
+                    },
+                    "id": 108,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "design",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 62,
+                    "src": "497:19:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 104,
+                  "id": 109,
+                  "nodeType": "Return",
+                  "src": "490:26:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 111,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getDesign",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 101,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100,
+                  "name": "sku",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "439:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 99,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "439:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "438:12:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 104,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 103,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "472:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 102,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "472:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "471:8:1"
+            },
+            "scope": 112,
+            "src": "420:103:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 113,
+        "src": "26:500:1"
+      }
+    ],
+    "src": "0:526:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/antoroko/Desktop/Thesis/project/provJewellery/contracts/ProductDesign.sol",
+    "exportedSymbols": {
+      "ProductDesign": [
+        112
+      ]
+    },
+    "id": 113,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 112,
+        "linearizedBaseContracts": [
+          112
+        ],
+        "name": "ProductDesign",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ProductDesign.Design",
+            "id": 63,
+            "members": [
+              {
+                "constant": false,
+                "id": 60,
+                "name": "sku",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "80:10:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 59,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "80:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 62,
+                "name": "design",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "100:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 61,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "100:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Design",
+            "nodeType": "StructDefinition",
+            "scope": 112,
+            "src": "56:64:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 65,
+            "name": "createdBy",
+            "nodeType": "VariableDeclaration",
+            "scope": 112,
+            "src": "126:17:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 64,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "126:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 69,
+            "name": "designs",
+            "nodeType": "VariableDeclaration",
+            "scope": 112,
+            "src": "150:33:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+              "typeString": "mapping(string => struct ProductDesign.Design)"
+            },
+            "typeName": {
+              "id": 68,
+              "keyType": {
+                "id": 66,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "158:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "150:25:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                "typeString": "mapping(string => struct ProductDesign.Design)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 67,
+                "name": "Design",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 63,
+                "src": "168:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Design_$63_storage_ptr",
+                  "typeString": "struct ProductDesign.Design"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 97,
+              "nodeType": "Block",
+              "src": "271:143:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 81,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 78,
+                      "name": "createdBy",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 65,
+                      "src": "281:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 79,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 127,
+                        "src": "293:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 80,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "293:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "281:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 82,
+                  "nodeType": "ExpressionStatement",
+                  "src": "281:22:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 90,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 83,
+                        "name": "designs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 69,
+                        "src": "313:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                          "typeString": "mapping(string memory => struct ProductDesign.Design storage ref)"
+                        }
+                      },
+                      "id": 85,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 84,
+                        "name": "_sku",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 71,
+                        "src": "321:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "313:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_storage",
+                        "typeString": "struct ProductDesign.Design storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 87,
+                          "name": "_sku",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 71,
+                          "src": "343:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 88,
+                          "name": "_signedDesign",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 73,
+                          "src": "357:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 86,
+                        "name": "Design",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "329:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Design_$63_storage_ptr_$",
+                          "typeString": "type(struct ProductDesign.Design storage pointer)"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [
+                        "sku",
+                        "design"
+                      ],
+                      "nodeType": "FunctionCall",
+                      "src": "329:44:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_memory",
+                        "typeString": "struct ProductDesign.Design memory"
+                      }
+                    },
+                    "src": "313:60:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Design_$63_storage",
+                      "typeString": "struct ProductDesign.Design storage ref"
+                    }
+                  },
+                  "id": 91,
+                  "nodeType": "ExpressionStatement",
+                  "src": "313:60:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 92,
+                        "name": "designs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 69,
+                        "src": "390:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                          "typeString": "mapping(string memory => struct ProductDesign.Design storage ref)"
+                        }
+                      },
+                      "id": 94,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 93,
+                        "name": "_sku",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 71,
+                        "src": "398:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "390:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_storage",
+                        "typeString": "struct ProductDesign.Design storage ref"
+                      }
+                    },
+                    "id": 95,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sku",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 60,
+                    "src": "390:17:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 77,
+                  "id": 96,
+                  "nodeType": "Return",
+                  "src": "383:24:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 98,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "createDesign",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "name": "_sku",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 98,
+                  "src": "212:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "212:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 73,
+                  "name": "_signedDesign",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 98,
+                  "src": "225:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "225:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "211:35:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 76,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 98,
+                  "src": "263:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "263:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "262:8:1"
+            },
+            "scope": 112,
+            "src": "190:224:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 110,
+              "nodeType": "Block",
+              "src": "480:43:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 105,
+                        "name": "designs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 69,
+                        "src": "497:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Design_$63_storage_$",
+                          "typeString": "mapping(string memory => struct ProductDesign.Design storage ref)"
+                        }
+                      },
+                      "id": 107,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 106,
+                        "name": "sku",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100,
+                        "src": "505:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "497:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Design_$63_storage",
+                        "typeString": "struct ProductDesign.Design storage ref"
+                      }
+                    },
+                    "id": 108,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "design",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 62,
+                    "src": "497:19:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 104,
+                  "id": 109,
+                  "nodeType": "Return",
+                  "src": "490:26:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 111,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getDesign",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 101,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100,
+                  "name": "sku",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "439:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 99,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "439:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "438:12:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 104,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 103,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "472:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 102,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "472:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "471:8:1"
+            },
+            "scope": 112,
+            "src": "420:103:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 113,
+        "src": "26:500:1"
+      }
+    ],
+    "src": "0:526:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+  },
+  "networks": {
+    "1526045902704": {
+      "events": {},
+      "links": {},
+      "address": "0xaf9e08e10544588e9e0888fffb4b2740d553cd62",
+      "transactionHash": "0x7fab42687c2e05a7beac61bd110191ffb992c8c838637220145183915923b8ec"
+    },
+    "1526054694760": {
+      "events": {},
+      "links": {},
+      "address": "0xf34c441a6faac74650a4f09bdabd6f39fa2ed3ef",
+      "transactionHash": "0x93b913ffae4e514475511f16650f8234d90f2a3492347abc2bc88f2ca1f15ac4"
+    },
+    "1526055243170": {
+      "events": {},
+      "links": {},
+      "address": "0x3dc0944bfc61ca137bea0ed10d3008edaddfe95d",
+      "transactionHash": "0x93b913ffae4e514475511f16650f8234d90f2a3492347abc2bc88f2ca1f15ac4"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-11T16:14:40.489Z"
+}
