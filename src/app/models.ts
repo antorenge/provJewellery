@@ -13,6 +13,7 @@ export class ProductDesign {
     images: Image[];
     drawings: Drawing[];
     bill_of_materials: BillOfMaterial[];
+    designers: User[];
 }
 
 export class Image {
@@ -42,4 +43,17 @@ export class Material {
 export class SignedProductDesign {
     sku: string;
     signed: string;
+}
+
+export class User {
+    id: string;
+    first_name: string;
+    last_name: string;
+    gender: string;
+    email: string;
+    phone: string;
+    picture: string;
+    date_joined: string;
+    is_active: boolean;
+    is_staff: boolean;
 }
