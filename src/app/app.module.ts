@@ -13,6 +13,7 @@ import { ProductDesignService } from './services/product-design.service';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductDesignComponent } from './product-design/product-design.component';
+import { CloudService } from './services/cloud.service';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ProductDesignComponent } from './product-design/product-design.componen
   ],
   providers: [
     Web3Service,
-    ProductDesignService
+    ProductDesignService,
+    CloudService
   ],
   bootstrap: [AppComponent]
 })
