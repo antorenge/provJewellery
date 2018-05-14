@@ -1,6 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ProductDesignService } from '../services/product-design.service';
 import { Web3Service } from '../services/web3.service';
+import { CloudService } from '../services/cloud.service';
+import { ProductDesign, SignedProductDesign } from '../models';
 
 @Component({
   selector: 'app-product-design',
@@ -10,16 +12,23 @@ import { Web3Service } from '../services/web3.service';
 export class ProductDesignComponent implements OnInit {
 
   design: string;
+  designs: ProductDesign[] = [];
+  signedDesign: SignedProductDesign;
   account: any;
   accounts: any;
 
   constructor(
     private _ngZone: NgZone,
     private designService: ProductDesignService,
-    private web3Service: Web3Service) { }
+    private web3Service: Web3Service,
+    private cloudService: CloudService) { }
 
   ngOnInit() {
-    // Get the initial account balance so it can be displayed.
+    this.getInitialAccount();
+    this.getDesignCloud();
+  }
+
+  getInitialAccount() {
     this.web3Service.getAccounts().subscribe(accs => {
       this.accounts = accs;
       this.account = this.accounts[0];
@@ -32,22 +41,28 @@ export class ProductDesignComponent implements OnInit {
     }, err => alert(err));
   }
 
-  setDesign() {
-    // tslint:disable-next-line:max-line-length
-    this.designService.setDesign('ABC123XYZ', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJza3UiOiJBQkMxMjMifQ.KFbGaIg01qjxjCqXL_110LjRxVt2v6FC7jWG8YmUI1g', this.account)
-      .subscribe(data => {
-        console.log(data);
-      }, error => {
-        console.log(error);
-      });
-  }
-
-  getDesign() {
-    this.designService.getDesign('ABC123XYZ').subscribe(data => {
-      this.design = data;
+  getDesignCloud() {
+    this.cloudService.getProductDesigns().subscribe(data => {
+      this.designs = data;
+      console.log(data);
     }, error => {
       console.log(error);
     });
+  }
+
+  saveToBlockchain(design: ProductDesign) {
+    this.cloudService.getSignedProductDesign(design.sku).subscribe(data => {
+      this.signedDesign = data;
+      this.setDesignBlockchain(this.signedDesign);
+    }, error => console.log(error));
+  }
+
+  setDesignBlockchain(signedDesign: SignedProductDesign) {
+    console.log(signedDesign, this.account);
+    this.designService.setDesign(signedDesign.sku, signedDesign.signed, this.account)
+      .subscribe(data => {
+        console.log(data);
+      }, error => console.log(error));
   }
 
 }

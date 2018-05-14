@@ -1,12 +1,27 @@
 <app-navbar></app-navbar>
 
 <div class="ui main text container">
-  <h1 class="ui header">Semantic UI Fixed Template</h1>
+  <h1 class="ui header">Product Designs</h1>
 
-  <button class="ui primary basic button" (click)="getDesign()">Get Design</button>
+  <!-- <button class="ui primary basic button" (click)="getDesign()">Get Design</button> -->
 
-  <p>
-    {{ design }}
-  </p>
-
+  <div class="ui link cards">
+    <div class="card" *ngFor="let design of designs">
+      <div class="image">
+        <img src="{{ design?.images[0]?.file }}">
+      </div>
+      <div class="content">
+        <div class="header">{{ design?.sku }}</div>
+        <div class="meta">
+          <a>{{ design?.name }}</a>
+        </div>
+        <!-- <div class="description">
+          {{ design?.collection }}
+        </div> -->
+      </div>
+      <div class="ui primary bottom attached button" (click)="saveToBlockchain(design)">
+        <i class="save icon"></i> SAVE TO BLOCKCHAIN
+      </div>
+    </div>
+  </div>
 </div>
