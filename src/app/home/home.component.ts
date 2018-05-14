@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   searchProductDesigns() {
     this.cloudService.searchProductDesign(this.search).subscribe(data => {
       this.designs = data;
+      console.log(this.designs);
       this.designs.forEach(design => {
         this.getDesignBlockchain(design.sku);
       });
