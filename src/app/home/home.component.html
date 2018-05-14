@@ -3,15 +3,132 @@
 <div class="ui main text container">
   <!-- <h1 class="ui header">Search</h1> -->
 
-  <div class="ui transparent left huge icon input">
-    <input type="text" placeholder="Search...">
-    <i class="search icon"></i>
-  </div>
+  <form class="ui action input" [ngClass]="{ 'error': f.submitted && !s.valid }" #f="ngForm" novalidate (ngSubmit)="f.form.valid && searchProductDesigns()">
+    <input type="text" name="searchInput" #s="ngModel" placeholder="Search..." [(ngModel)]="search" required>
+    <button type="submit" class="ui teal button">Search</button>
+  </form>
 
   <div class="ui raised segment">
-    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-      feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
-      mi vitae est. Mauris placerat eleifend leo.</p>
+
+    <div class="ui feed">
+      <div class="event">
+        <div class="label">
+          <i class="image icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a class="user">
+              Elliot Fu
+            </a> added you as a friend
+            <div class="date">
+              1 Hour Ago
+            </div>
+          </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 4 Likes
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="users icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a>Helen Troy</a> added
+            <a>2 new illustrations</a>
+            <div class="date">
+              4 days ago
+            </div>
+          </div>
+          <div class="extra images">
+            <a>
+              <img src="/images/wireframe/image.png">
+            </a>
+            <a>
+              <img src="/images/wireframe/image.png">
+            </a>
+          </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 1 Like
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="balance scale icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a class="user">
+              Jenny Hess
+            </a> added you as a friend
+            <div class="date">
+              2 Days Ago
+            </div>
+          </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 8 Likes
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="balance scale icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a>Joe Henderson</a> posted on his page
+            <div class="date">
+              3 days ago
+            </div>
+          </div>
+          <div class="extra text">
+            Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even
+            if we don't run extra laps that day, we surely will come back for more of the same another day soon.
+          </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 5 Likes
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="money bill alternate icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a>Justen Kitsune</a> added
+            <a>2 new photos</a> of you
+            <div class="date">
+              4 days ago
+            </div>
+          </div>
+          <div class="extra images">
+            <a>
+              <img src="/images/wireframe/image.png">
+            </a>
+            <a>
+              <img src="/images/wireframe/image.png">
+            </a>
+          </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 41 Likes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>
