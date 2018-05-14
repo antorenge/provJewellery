@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  HttpProvider: 'http://localhost:8545'
+  HttpProvider: 'http://localhost:8545',
+  baseUrl: 'http://localhost:8000/'
 };
