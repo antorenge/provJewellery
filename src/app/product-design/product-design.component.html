@@ -1,27 +1,30 @@
 <app-navbar></app-navbar>
 
-<div class="ui main text container">
-  <h1 class="ui header">Product Designs</h1>
+<div class="ui grid container">
 
-  <!-- <button class="ui primary basic button" (click)="getDesign()">Get Design</button> -->
+  <div class="ui sixteen wide column">
+    <br>
+    <h1 class="ui header">Product Designs</h1>
+    <p>Commit product designs to blockchain secured storage</p>
+  </div>
 
-  <div class="ui link cards">
-    <div class="card" *ngFor="let design of designs">
-      <div class="image">
-        <img src="{{ design?.images[0]?.file }}">
-      </div>
-      <div class="content">
-        <div class="header">{{ design?.sku }}</div>
-        <div class="meta">
-          <a>{{ design?.name }}</a>
+  <div class="ui sixteen wide column">
+    <div class="ui link cards">
+      <div class="card" *ngFor="let design of designs">
+        <div class="image">
+          <img src="{{ design?.images[0]?.file }}">
         </div>
-        <!-- <div class="description">
-          {{ design?.collection }}
-        </div> -->
-      </div>
-      <div class="ui primary bottom attached button" (click)="saveToBlockchain(design)">
-        <i class="save icon"></i> SAVE TO BLOCKCHAIN
+        <div class="content">
+          <div class="header">{{ design?.sku }}</div>
+          <div class="description">
+            {{ design?.name }}
+          </div>
+        </div>
+        <div class="ui primary bottom attached button" (click)="saveToBlockchain(design)">
+          <i class="save icon"></i> Commit to Blockchain
+        </div>
       </div>
     </div>
   </div>
+
 </div>
