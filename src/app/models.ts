@@ -42,7 +42,7 @@ export class Material {
 
 export class SignedProductDesign {
     sku: string;
-    signed: string;
+    token: string;
 }
 
 export class User {
