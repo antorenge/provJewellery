@@ -32,19 +32,12 @@ export class ProductDesignComponent implements OnInit {
     this.web3Service.getAccounts().subscribe(accs => {
       this.accounts = accs;
       this.account = this.accounts[0];
-      console.log(this.accounts);
-      // This is run from window:load and ZoneJS is not aware of it we
-      // need to use _ngZone.run() so that the UI updates on promise resolution
-      // this._ngZone.run(() =>
-      //   this.setDesign()
-      // );
     }, err => alert(err));
   }
 
   getDesignCloud() {
     this.cloudService.getProductDesigns().subscribe(data => {
       this.designs = data;
-      console.log(data);
     }, error => {
       console.log(error);
     });
@@ -58,8 +51,7 @@ export class ProductDesignComponent implements OnInit {
   }
 
   setDesignBlockchain(signedDesign: SignedProductDesign) {
-    console.log(signedDesign, this.account);
-    this.designService.setDesign(signedDesign.sku, signedDesign.signed, this.account)
+    this.designService.setDesign(signedDesign.sku, signedDesign.token, this.account)
       .subscribe(data => {
         console.log(data);
       }, error => console.log(error));
