@@ -20,7 +20,7 @@ contract ProductDesign {
         createdBy = msg.sender;
         designs[_sku] = Design({ sku: _sku, design: _signedDesign, exists: true });
 
-        return designs[_sku].sku;
+        return _sku;
     }
 
     function getDesign(string sku) public view returns (string) {
