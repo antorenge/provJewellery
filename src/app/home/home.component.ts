@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CloudService } from '../services/cloud.service';
 import { ProductDesignService } from '../services/product-design.service';
-import { ProductDesign } from '../models';
+import { ProductDesign, SignedProductDesign } from '../models';
 
 const jwtDecode = require('jwt-decode');
 
@@ -14,22 +14,19 @@ export class HomeComponent implements OnInit {
 
   search: any;
   designs: ProductDesign[] = [];
-  signedDesigns: any;
+  signedDesigns = {};
+  isLoading = false;
+  isValidated: any;
 
-  constructor(private cloudService: CloudService, private designService: ProductDesignService, ) { }
+  constructor(private cloudService: CloudService,
+    private designService: ProductDesignService, ) { }
 
   ngOnInit() {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJza3UiOiJBQkMxMjMifQ.KFbGaIg01qjxjCqXL_110LjRxVt2v6FC7jWG8YmUI1g';
-
-    const decoded = jwtDecode(token);
-    console.log(decoded);
-
   }
 
   searchProductDesigns() {
     this.cloudService.searchProductDesign(this.search).subscribe(data => {
       this.designs = data;
-      console.log(this.designs);
       this.designs.forEach(design => {
         this.getDesignBlockchain(design.sku);
       });
@@ -38,11 +35,28 @@ export class HomeComponent implements OnInit {
 
   getDesignBlockchain(sku: string) {
     this.designService.getDesign(sku).subscribe(data => {
-      console.log(data);
       const decoded = jwtDecode(data);
       console.log(decoded);
+      this.signedDesigns[sku] = data;
     }, error => {
       console.log(error);
+    });
+  }
+
+  validateDesign(sku: string) {
+    this.isLoading = true;
+    const signedDesign = this.signedDesigns[sku];
+    const payload: SignedProductDesign = {
+      sku: sku,
+      token: signedDesign
+    };
+    this.cloudService.validateProductDesign(payload).subscribe(data => {
+      this.isLoading = false;
+      this.isValidated = 'yes';
+    }, error => {
+      console.log(error);
+      this.isLoading = false;
+      this.isValidated = 'no';
     });
   }
 

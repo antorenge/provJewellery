@@ -9,12 +9,12 @@ export class CloudService {
   constructor(public http: HttpClient) { }
 
   postProductDesign(design: ProductDesign) {
-    const url = environment.baseUrl + 'products/designs/';
+    const url = environment.baseUrl + 'products/designs';
     return this.http.post(url, design);
   }
 
   getProductDesigns() {
-    const url = environment.baseUrl + 'products/designs/';
+    const url = environment.baseUrl + 'products/designs';
     return this.http.get<ProductDesign[]>(url);
   }
 
@@ -29,9 +29,14 @@ export class CloudService {
   }
 
   searchProductDesign(search: string) {
-    const url = environment.baseUrl + 'products/designs/';
+    const url = environment.baseUrl + 'products/designs';
     const params = new HttpParams().set('search', search);
     return this.http.get<ProductDesign[]>(url, { params });
+  }
+
+  validateProductDesign(signedDesign: SignedProductDesign) {
+    const url = environment.baseUrl + 'products/validate';
+    return this.http.post(url, signedDesign);
   }
 
 }

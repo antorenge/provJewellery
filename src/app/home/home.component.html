@@ -30,9 +30,17 @@
               {{ design?.name }}
             </div>
           </div>
-          <div class="ui bottom attached green button">
-            Validate
-          </div>
+          <button class="ui bottom attached button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
+            (click)="validateDesign(design.sku)" [disabled]="isLoading">
+            <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
+            <i *ngIf="isValidated === 'yes'" class="check icon"></i>
+            <i *ngIf="isValidated === 'no'" class="times icon"></i>
+
+            <span *ngIf="!isValidated">Validate</span>
+            <span *ngIf="isValidated === 'yes'">Valid</span>
+            <span *ngIf="isValidated === 'no'">Not valid</span>
+
+          </button>
         </div>
       </div>
 
@@ -64,28 +72,38 @@
                   </div>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="3">
-                  <ul class="ui list">
-                    <li class="item">
-                      <div class="header">Category</div>
-                      <div class="description">{{ design?.category }}</div>
-                    </li>
-                    <li class="item">
-                      <div class="header">Collection</div>
-                      <div class="description">{{ design?.collection }}</div>
-                    </li>
-                    <li class="item">
-                      <div class="header">Year</div>
-                      <div class="description">{{ design?.year }}</div>
-                    </li>
-                    <li class="item">
-                      <div class="header">Color</div>
-                      <div class="description">{{ design?.color }}</div>
-                    </li>
-                    <li class="item">
-                      <div class="header">Size</div>
-                      <div class="description">{{ design?.size }}</div>
-                    </li>
-                  </ul>
+                  <div class="ui grid">
+                    <div class="ui eight wide column">
+                      <ul class="ui list">
+                        <li class="item">
+                          <div class="header">Category</div>
+                          <div class="description">{{ design?.category }}</div>
+                        </li>
+                        <li class="item">
+                          <div class="header">Collection</div>
+                          <div class="description">{{ design?.collection }}</div>
+                        </li>
+                        <li class="item">
+                          <div class="header">Year</div>
+                          <div class="description">{{ design?.year }}</div>
+                        </li>
+                        <li class="item">
+                          <div class="header">Color</div>
+                          <div class="description">{{ design?.color }}</div>
+                        </li>
+                        <li class="item">
+                          <div class="header">Size</div>
+                          <div class="description">{{ design?.size }}</div>
+                        </li>
+                      </ul>
+
+                    </div>
+                    <div class="ui eight wide column">
+                      <ul class="ui list">
+                        <!-- <li *ngFor="let item of " ></li> -->
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="4">
                   <ul class="ui list">
