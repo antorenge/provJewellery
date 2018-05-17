@@ -9,11 +9,16 @@ import { AppRoutes } from './app.routes';
 import { SuiModule } from 'ng2-semantic-ui';
 
 import { Web3Service } from './services/web3.service';
-import { ProductDesignService } from './services/product-design.service';
+import { ProvJewelleryService } from './services/prov-jewellery.service';
+import { ProductDesignService } from './product-design/services/product-design.service';
+
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductDesignComponent } from './product-design/product-design.component';
-import { CloudService } from './services/cloud.service';
+import { ArtisanProductionComponent } from './artisan-production/artisan-production.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { ValidationComponent } from './validation/validation.component';
+import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 
 @NgModule({
@@ -21,7 +26,11 @@ import { CloudService } from './services/cloud.service';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    ProductDesignComponent
+    ProductDesignComponent,
+    ArtisanProductionComponent,
+    DeliveryComponent,
+    ValidationComponent,
+    WorkInProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +41,8 @@ import { CloudService } from './services/cloud.service';
   ],
   providers: [
     Web3Service,
-    ProductDesignService,
-    CloudService
+    ProvJewelleryService,
+    ProductDesignService
   ],
   bootstrap: [AppComponent]
 })

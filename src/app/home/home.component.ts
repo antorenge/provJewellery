@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CloudService } from '../services/cloud.service';
-import { ProductDesignService } from '../services/product-design.service';
 import { ProductDesign, SignedProductDesign } from '../models';
+import { ProductDesignService } from '../product-design/services/product-design.service';
+import { ProvJewelleryService } from '../services/prov-jewellery.service';
 
 const jwtDecode = require('jwt-decode');
 
@@ -18,14 +18,14 @@ export class HomeComponent implements OnInit {
   isLoading = false;
   isValidated: any;
 
-  constructor(private cloudService: CloudService,
-    private designService: ProductDesignService, ) { }
+  constructor(private designService: ProductDesignService,
+    private provJewelleryService: ProvJewelleryService) { }
 
   ngOnInit() {
   }
 
   searchProductDesigns() {
-    this.cloudService.searchProductDesign(this.search).subscribe(data => {
+    this.designService.searchProductDesign(this.search).subscribe(data => {
       this.designs = data;
       this.designs.forEach(design => {
         this.getDesignBlockchain(design.sku);
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   getDesignBlockchain(sku: string) {
-    this.designService.getDesign(sku).subscribe(data => {
+    this.provJewelleryService.getDesign(sku).subscribe(data => {
       const decoded = jwtDecode(data);
       console.log(decoded);
       this.signedDesigns[sku] = data;
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
       sku: sku,
       token: signedDesign
     };
-    this.cloudService.validateProductDesign(payload).subscribe(data => {
+    this.designService.validateProductDesign(payload).subscribe(data => {
       this.isLoading = false;
       this.isValidated = 'yes';
     }, error => {
