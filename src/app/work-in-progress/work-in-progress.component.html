@@ -1,3 +1,103 @@
-<p>
-  work-in-progress works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="ui grid container">
+
+  <div class="ui sixteen wide column">
+    <br>
+    <h1 class="ui header">Work in progress</h1>
+    <p>Commit wip processes to blockchain secured storage</p>
+  </div>
+
+  <div class="ui sixteen wide column">
+    <div class="ui cards">
+      <div class="card" *ngFor="let wip of wips">
+        <div class="content">
+          <img class="right floated tiny ui image" src="{{ wip?.product?.images[0]?.file }}">
+          <div class="header">
+            {{ wip?.product?.sku }}
+          </div>
+          <div class="meta">
+            {{ wip?.product?.name }}
+          </div>
+          <div class="description">
+            <p>WIP artisan:
+              <strong>{{ wip?.created_by?.first_name }} {{ wip?.created_by?.last_name }}</strong>
+            </p>
+            <sui-accordion-panel>
+              <div title>
+                <i class="dropdown icon"></i>
+                Received
+              </div>
+              <div content>
+                <sui-tabset>
+                  <div class="ui top attached tabular menu">
+                    <a class="item" suiTabHeader="1">Info</a>
+                    <a class="item" suiTabHeader="2">Items</a>
+                  </div>
+                  <div class="ui bottom attached segment" suiTabContent="1">
+                    <p>Quantity received:
+                      <strong>{{ wip?.quantity_received }}</strong>
+                    </p>
+                    <p>Received from:
+                      <strong>{{ wip?.received_from?.first_name }} {{ wip?.received_from?.last_name }}</strong>
+                    </p>
+                    <p>Date received:
+                      <strong>{{ wip?.date_received }}</strong>
+                    </p>
+                  </div>
+                  <div class="ui bottom attached segment" suiTabContent="2">
+                    <ul class="ui list">
+                      <li *ngFor="let item of wip?.received_items">
+                        {{ item?.product?.sku }} {{ item?.product?.name }}
+                      </li>
+                    </ul>
+                  </div>
+                </sui-tabset>
+
+              </div>
+            </sui-accordion-panel>
+
+            <sui-accordion-panel>
+              <div title>
+                <i class="dropdown icon"></i>
+                Delivered
+              </div>
+              <div content>
+                <sui-tabset>
+                  <div class="ui top attached tabular menu">
+                    <a class="item" suiTabHeader="1">Info</a>
+                    <a class="item" suiTabHeader="2">Items</a>
+                  </div>
+                  <div class="ui bottom attached segment" suiTabContent="1">
+                    <p>Quantity delivered:
+                      <strong>{{ wip?.quantity_delivered }}</strong>
+                    </p>
+                    <p>Delivered to:
+                      <strong>{{ wip?.delivered_to?.first_name }} {{ wip?.delivered_to?.last_name }}</strong>
+                    </p>
+                    <p>Date delivered:
+                      <strong>{{ wip?.date_delivered }}</strong>
+                    </p>
+                  </div>
+                  <div class="ui bottom attached segment" suiTabContent="2">
+                    <ul class="ui list">
+                      <li *ngFor="let item of wip?.delivered_items">
+                        {{ item?.product?.sku }} {{ item?.product?.name }}
+                      </li>
+                    </ul>
+                  </div>
+                </sui-tabset>
+
+              </div>
+            </sui-accordion-panel>
+
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui green bottom attached button" (click)="commitTransaction(wip)">Commit to Blockchain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
