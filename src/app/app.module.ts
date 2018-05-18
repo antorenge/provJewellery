@@ -15,6 +15,7 @@ import { ArtisanProductionService } from './artisan-production/services/artisan-
 import { DeliveryService } from './delivery/services/delivery.service';
 import { ValidationService } from './validation/services/validation.service';
 import { InventoryItemService } from './inventory-item/services/inventory-item.service';
+import { WipService } from './work-in-progress/services/wip.service';
 
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -52,7 +53,8 @@ import { InventoryItemComponent } from './inventory-item/inventory-item.componen
     ArtisanProductionService,
     DeliveryService,
     ValidationService,
-    InventoryItemService
+    InventoryItemService,
+    WipService
   ],
   bootstrap: [AppComponent]
 })
