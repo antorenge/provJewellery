@@ -46,14 +46,37 @@ export class SignedProductDesign {
 }
 
 export class User {
-    id: string;
     first_name: string;
     last_name: string;
     gender: string;
     email: string;
     phone: string;
     picture: string;
-    date_joined: string;
-    is_active: boolean;
-    is_staff: boolean;
+}
+
+export class ArtisanProduction {
+    po_product: PurchaseOrderProduct;
+    quantity_produced: number;
+    created_by: User;
+    modified_by: User;
+    location: Location;
+    suppliers: Supplier[];
+}
+
+export class Supplier {
+    material: Material;
+    name: string;
+    address: string;
+    location: Location;
+}
+
+export class PurchaseOrderProduct {
+    product: ProductDesign;
+    quantity_ordered: number;
+    unit_price: Money;
+}
+
+export class Money {
+    amount: number;
+    currency: string;
 }
