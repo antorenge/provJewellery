@@ -14,6 +14,7 @@ import { ProductDesignService } from './product-design/services/product-design.s
 import { ArtisanProductionService } from './artisan-production/services/artisan-production.service';
 import { DeliveryService } from './delivery/services/delivery.service';
 import { ValidationService } from './validation/services/validation.service';
+import { InventoryItemService } from './inventory-item/services/inventory-item.service';
 
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -22,6 +23,7 @@ import { ArtisanProductionComponent } from './artisan-production/artisan-product
 import { DeliveryComponent } from './delivery/delivery.component';
 import { ValidationComponent } from './validation/validation.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
+import { InventoryItemComponent } from './inventory-item/inventory-item.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
     ArtisanProductionComponent,
     DeliveryComponent,
     ValidationComponent,
-    WorkInProgressComponent
+    WorkInProgressComponent,
+    InventoryItemComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
     ProductDesignService,
     ArtisanProductionService,
     DeliveryService,
-    ValidationService
+    ValidationService,
+    InventoryItemService
   ],
   bootstrap: [AppComponent]
 })
