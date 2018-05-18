@@ -20,6 +20,7 @@ import { ArtisanProductionComponent } from './artisan-production/artisan-product
 import { DeliveryComponent } from './delivery/delivery.component';
 import { ValidationComponent } from './validation/validation.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
+import { DeliveryService } from './delivery/services/delivery.service';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
     Web3Service,
     ProvJewelleryService,
     ProductDesignService,
-    ArtisanProductionService
+    ArtisanProductionService,
+    DeliveryService
   ],
   bootstrap: [AppComponent]
 })

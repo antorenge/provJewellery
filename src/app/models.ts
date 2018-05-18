@@ -80,3 +80,13 @@ export class Money {
     amount: number;
     currency: string;
 }
+
+export class Delivery {
+    po_product: PurchaseOrderProduct;
+    quantity_delivered: number;
+    quantity_received: number;
+    date_delivered: string;
+    date_received: string;
+    delivered_by: User;
+    received_by: User;
+}

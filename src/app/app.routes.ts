@@ -4,10 +4,12 @@ import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { ProductDesignComponent } from './product-design/product-design.component';
 import { ArtisanProductionComponent } from './artisan-production/artisan-production.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'product', component: ProductDesignComponent },
-    { path: 'production', component: ArtisanProductionComponent },
+    { path: 'designs', component: ProductDesignComponent },
+    { path: 'productions', component: ArtisanProductionComponent },
+    { path: 'deliveries', component: DeliveryComponent },
 
 ];
