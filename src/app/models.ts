@@ -14,17 +14,19 @@ export class ProductDesign {
     drawings: Drawing[];
     bill_of_materials: BillOfMaterial[];
     designers: User[];
+    components: ProductDesign[];
+    date_created: string;
+    date_modified: string;
+    created_by: User;
+    modified_by: User;
 }
 
 export class Image {
-    id: string;
     file: string;
     label: string;
-
 }
 
 export class Drawing {
-    id: string;
     file: string;
     label: string;
 }
