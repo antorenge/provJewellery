@@ -8,7 +8,7 @@
     <p>Determine provenance for your handcrafted jewellery</p>
     <form id="search-form" class="ui action big input" [ngClass]="{ 'error': f.submitted && !s.valid }" #f="ngForm" novalidate
       (ngSubmit)="f.form.valid && searchProductDesigns()">
-      <input type="text" name="searchInput" #s="ngModel" placeholder="Search..." [(ngModel)]="search" required>
+      <input type="text" name="searchInput" #s="ngModel" placeholder="Search by serial number..." [(ngModel)]="search" required>
       <button type="submit" class="ui teal button">
         <i class="search icon"></i>
         Search
@@ -19,7 +19,7 @@
   <div class="ui sixteen wide column">
     <div class="ui raised segment grid" *ngFor="let design of designs">
 
-      <div class="five wide column">
+      <div class="four wide column">
         <div class="ui card">
           <div class="image">
             <img src="{{ design?.images[0]?.file }}">
@@ -30,81 +30,72 @@
               {{ design?.name }}
             </div>
           </div>
-          <button class="ui bottom attached button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
-            (click)="validateDesign(design.sku)" [disabled]="isLoading">
-            <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
-            <i *ngIf="isValidated === 'yes'" class="check icon"></i>
-            <i *ngIf="isValidated === 'no'" class="times icon"></i>
 
-            <span *ngIf="!isValidated">Validate</span>
-            <span *ngIf="isValidated === 'yes'">Valid</span>
-            <span *ngIf="isValidated === 'no'">Not valid</span>
-
-          </button>
         </div>
       </div>
 
-      <div class="eleven wide column">
+      <div class="twelve wide column">
 
-        <sui-accordion class="styled fluid">
-          <sui-accordion-panel [isOpen]="true">
-            <div title>
-              <i class="dropdown icon"></i>
-              Product design
-            </div>
-            <div content>
+        <ul class="timeline">
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">{{ design?.date_created | date:'medium' }}</p>
+              <h3>Product design</h3>
+              <h4>
+                <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
+                  (click)="validateDesign(design.sku)" [disabled]="isLoading">
+                  <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
+                  <i *ngIf="isValidated === 'yes'" class="check icon"></i>
+                  <i *ngIf="isValidated === 'no'" class="times icon"></i>
+
+                  <span *ngIf="!isValidated">Validate</span>
+                  <span *ngIf="isValidated === 'yes'">Valid</span>
+                  <span *ngIf="isValidated === 'no'">Not valid</span>
+
+                </button>
+              </h4>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
-                  <a class="item" suiTabHeader="1">Images</a>
-                  <a class="item" suiTabHeader="2">Drawings</a>
-                  <a class="item" suiTabHeader="3">Product design specification</a>
-                  <a class="item" suiTabHeader="4">Bill of materials</a>
+                  <a class="item" suiTabHeader="1">Product design specification</a>
+                  <a class="item" suiTabHeader="2">Bill of materials</a>
+                  <a class="item" suiTabHeader="3">Images</a>
+                  <a class="item" suiTabHeader="4">Drawings</a>
                   <a class="item" suiTabHeader="5">Designers</a>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="1">
-                  <div class="ui tiny images">
-                    <img class="ui image" *ngFor="let img of design?.images" src="{{ img?.file }}">
-                  </div>
+                  <p>Category:
+                    <strong>{{ design?.category }}</strong>
+                  </p>
+                  <p>Collection:
+                    <strong>{{ design?.collection }}</strong>
+                  </p>
+                  <p>Year:
+                    <strong>{{ design?.year }}</strong>
+                  </p>
+                  <p>Color:
+                    <strong>{{ design?.color }}</strong>
+                  </p>
+                  <p>Size:
+                    <strong>{{ design?.size }}</strong>
+                  </p>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="2">
-                  <div class="ui tiny images">
-                    <img class="ui image" *ngFor="let drawing of design?.drawings" src="{{ drawing?.file }}">
-                  </div>
-                </div>
-                <div class="ui bottom attached segment" suiTabContent="3">
-                  <div class="ui grid">
-                    <div class="ui eight wide column">
-
-                      <p>Category:
-                        <strong>{{ design?.category }}</strong>
-                      </p>
-                      <p>Collection:
-                        <strong>{{ design?.collection }}</strong>
-                      </p>
-                      <p>Year:
-                        <strong>{{ design?.year }}</strong>
-                      </p>
-                      <p>Color:
-                        <strong>{{ design?.color }}</strong>
-                      </p>
-                      <p>Size:
-                        <strong>{{ design?.size }}</strong>
-                      </p>
-
-                    </div>
-                    <div class="ui eight wide column">
-                      <ul class="ui list">
-                        <!-- <li *ngFor="let item of " ></li> -->
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui bottom attached segment" suiTabContent="4">
                   <ul class="ui list">
                     <li *ngFor="let bom of design.bill_of_materials">
                       {{ bom?.material?.name }} ({{ bom?.quantity }} {{ bom?.material?.units_of_measurement }})
                     </li>
                   </ul>
+                </div>
+                <div class="ui bottom attached segment" suiTabContent="3">
+                  <div class="ui tiny images">
+                    <img class="ui image" *ngFor="let img of design?.images" src="{{ img?.file }}">
+                  </div>
+                </div>
+                <div class="ui bottom attached segment" suiTabContent="4">
+                  <div class="ui tiny images">
+                    <img class="ui image" *ngFor="let drawing of design?.drawings" src="{{ drawing?.file }}">
+                  </div>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="5">
                   <ul class="ui list">
@@ -115,13 +106,12 @@
                 </div>
               </sui-tabset>
             </div>
-          </sui-accordion-panel>
-          <sui-accordion-panel>
-            <div title>
-              <i class="dropdown icon"></i>
-              Artisan production
-            </div>
-            <div content>
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">November 2009 - März 2011</p>
+              <h3>Artisan production</h3>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
                   <a class="item" suiTabHeader="1">Quantities</a>
@@ -147,37 +137,39 @@
                   </ul>
                 </div>
               </sui-tabset>
-
             </div>
-          </sui-accordion-panel>
-          <sui-accordion-panel>
-            <div title>
-              <i class="dropdown icon"></i>
-              Quality and Assurance Validation
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">April 2011 - heute</p>
+              <h3>Quality and Assurance Validation</h3>
+              <p>
+                <strong>Systemarchitektur, Consulting</strong>
+                <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
             </div>
-            <div content>
-              <p>Second panel content.</p>
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">April 2011 - heute</p>
+              <h3>Value addition</h3>
+              <p>
+                <strong>Systemarchitektur, Consulting</strong>
+                <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
             </div>
-          </sui-accordion-panel>
-          <sui-accordion-panel>
-            <div title>
-              <i class="dropdown icon"></i>
-              Value addition (WIP)
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">April 2011 - heute</p>
+              <h3>Title transfer</h3>
+              <p>
+                <strong>Systemarchitektur, Consulting</strong>
+                <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
             </div>
-            <div content>
-              <p>Second panel content.</p>
-            </div>
-          </sui-accordion-panel>
-          <sui-accordion-panel>
-            <div title>
-              <i class="dropdown icon"></i>
-              Ownership
-            </div>
-            <div content>
-              <p>Second panel content.</p>
-            </div>
-          </sui-accordion-panel>
-        </sui-accordion>
+          </li>
+        </ul>
 
       </div>
     </div>
