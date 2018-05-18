@@ -9,20 +9,9 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  account: any;
-  accounts: any;
 
-  constructor(private _ngZone: NgZone, private web3Service: Web3Service) {
-    this.onReady();
-  }
+  title = 'provJewellery';
 
-  onReady = () => {
-    // this.web3Service.getAccounts().subscribe(accs => {
-    //   this.accounts = accs;
-    //   this.account = this.accounts[0];
+  constructor() { }
 
-    //   // this._ngZone.run(() => )
-    // }, error => console.log(error));
-  }
 }
