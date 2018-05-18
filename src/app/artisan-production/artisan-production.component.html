@@ -1,3 +1,38 @@
-<p>
-  artisan-production works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="ui grid container">
+
+  <div class="ui sixteen wide column">
+    <br>
+    <h1 class="ui header">Artisan Productions</h1>
+    <p>Commit artisan productions to blockchain secured storage</p>
+  </div>
+
+  <div class="ui sixteen wide column">
+    <div class="ui cards">
+      <div class="card" *ngFor="let prod of productions">
+        <div class="content">
+          <img class="right floated tiny ui image" src="{{ prod?.po_product?.product?.images[0]?.file }}">
+          <div class="header">
+            {{ prod?.po_product?.product?.sku }}
+          </div>
+          <div class="meta">
+            {{ prod?.po_product?.product?.name }}
+          </div>
+          <div class="description">
+            <p>Quantity produced:
+              <strong>{{ prod?.quantity_produced }}</strong>
+            </p>
+            <p>Produced by:
+              <strong>{{ prod?.created_by?.first_name }} {{ prod?.created_by?.last_name }}</strong>
+            </p>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui green bottom attached button" (click)="commitTransaction(prod)">Commit to Blockchain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
