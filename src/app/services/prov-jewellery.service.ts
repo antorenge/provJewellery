@@ -58,4 +58,25 @@ export class ProvJewelleryService {
     });
   }
 
+  setProduction(): Observable<any> {
+    let design;
+
+    return Observable.create(observer => {
+      this.ProductDesign
+        .deployed()
+        .then(instance => {
+          design = instance;
+          // return design.createDesign(sku, signedDesign, { from: account });
+        })
+        .then(() => {
+          observer.next();
+          observer.next();
+        })
+        .catch(e => {
+          console.log(e);
+          observer.error(e);
+        });
+    });
+  }
+
 }
