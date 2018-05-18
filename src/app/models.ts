@@ -92,8 +92,19 @@ export class Delivery {
 }
 
 export class Validation {
-    item: string;
+    item: InventoryItem;
     is_approved: boolean;
     validated_by: User;
     stage: string;
+}
+
+export class InventoryItem {
+    serial_no: string;
+    product: ProductDesign;
+    delivery: number;
+    wip: WorkInProgress;
+}
+
+export class WorkInProgress {
+
 }
