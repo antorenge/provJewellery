@@ -1,3 +1,50 @@
-<p>
-  delivery works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="ui grid container">
+
+  <div class="ui sixteen wide column">
+    <br>
+    <h1 class="ui header">Deliveries</h1>
+    <p>Commit deliveries to blockchain secured storage</p>
+  </div>
+
+  <div class="ui sixteen wide column">
+    <div class="ui cards">
+      <div class="card" *ngFor="let delivery of deliveries">
+        <div class="content">
+          <img class="right floated tiny ui image" src="{{ delivery?.po_product?.product?.images[0]?.file }}">
+          <div class="header">
+            {{ delivery?.po_product?.product?.sku }}
+          </div>
+          <div class="meta">
+            {{ delivery?.po_product?.product?.name }}
+          </div>
+          <div class="description">
+            <p>Quantity delivered:
+              <strong>{{ delivery?.quantity_delivered }}</strong>
+            </p>
+            <p>Delivered by:
+              <strong>{{ delivery?.delivered_by?.first_name }} {{ delivery?.delivered_by?.last_name }}</strong>
+            </p>
+            <p>Date delivered:
+              <strong>{{ delivery?.date_delivered | date:'shortDate' }}</strong>
+            </p>
+            <p>Quantity received:
+              <strong>{{ delivery?.quantity_received }}</strong>
+            </p>
+            <p>Received by:
+              <strong>{{ delivery?.received_by?.first_name }} {{ delivery?.received_by?.last_name }}</strong>
+            </p>
+            <p>Date received:
+              <strong>{{ delivery?.date_received | date:'shortDate' }}</strong>
+            </p>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui green bottom attached button" (click)="commitTransaction(delivery)">Commit to Blockchain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

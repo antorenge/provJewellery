@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DeliveryService } from './services/delivery.service';
+import { Delivery } from '../models';
 
 @Component({
   selector: 'app-delivery',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeliveryComponent implements OnInit {
 
-  constructor() { }
+  deliveries: Delivery[] = [];
+
+  constructor(private deliveryService: DeliveryService) { }
 
   ngOnInit() {
+    this.deliveryService.getDeliveries().subscribe(data => {
+      this.deliveries = data;
+    }, error => console.log(error));
+  }
+
+  commitTransaction() {
+
   }
 
 }
