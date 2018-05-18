@@ -8,9 +8,9 @@ export class ProductDesignService {
 
   constructor(public http: HttpClient) { }
 
-  postProductDesign(design: ProductDesign) {
-    const url = environment.baseUrl + 'products/designs';
-    return this.http.post(url, design);
+  getProductDesign(sku: string) {
+    const url = environment.baseUrl + 'products/designs/' + sku;
+    return this.http.get<ProductDesign>(url);
   }
 
   getProductDesigns() {
@@ -18,9 +18,9 @@ export class ProductDesignService {
     return this.http.get<ProductDesign[]>(url);
   }
 
-  getProductDesign(sku: string) {
-    const url = environment.baseUrl + 'products/designs/' + sku;
-    return this.http.get<ProductDesign>(url);
+  postProductDesign(design: ProductDesign) {
+    const url = environment.baseUrl + 'products/designs';
+    return this.http.post(url, design);
   }
 
   getSignedProductDesign(sku: string) {
