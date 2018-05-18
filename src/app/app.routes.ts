@@ -7,6 +7,7 @@ import { ArtisanProductionComponent } from './artisan-production/artisan-product
 import { DeliveryComponent } from './delivery/delivery.component';
 import { ValidationComponent } from './validation/validation.component';
 import { InventoryItemComponent } from './inventory-item/inventory-item.component';
+import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,5 +16,6 @@ export const AppRoutes: Routes = [
     { path: 'deliveries', component: DeliveryComponent },
     { path: 'validations', component: ValidationComponent },
     { path: 'items', component: InventoryItemComponent },
+    { path: 'wip', component: WorkInProgressComponent },
 
 ];
