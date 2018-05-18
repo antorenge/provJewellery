@@ -8,6 +8,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { ValidationComponent } from './validation/validation.component';
 import { InventoryItemComponent } from './inventory-item/inventory-item.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
+import { OwnershipComponent } from './ownership/ownership.component';
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,5 +18,6 @@ export const AppRoutes: Routes = [
     { path: 'validations', component: ValidationComponent },
     { path: 'items', component: InventoryItemComponent },
     { path: 'wip', component: WorkInProgressComponent },
+    { path: 'transfer', component: OwnershipComponent },
 
 ];
