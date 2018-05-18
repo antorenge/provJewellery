@@ -42,7 +42,7 @@ export class ProductDesignComponent implements OnInit {
     });
   }
 
-  saveToBlockchain(design: ProductDesign) {
+  commitTransaction(design: ProductDesign) {
     this.designService.getSignedProductDesign(design.sku).subscribe(data => {
       this.signedDesign = data;
       this.setDesignBlockchain(this.signedDesign);
