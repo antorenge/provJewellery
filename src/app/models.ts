@@ -105,6 +105,23 @@ export class InventoryItem {
     wip: WorkInProgress;
 }
 
-export class WorkInProgress {
+export class Workshop {
+    name: string;
+    address: string;
+}
 
+export class WorkInProgress {
+    product: ProductDesign;
+    workshop: Workshop;
+    process: string;
+    received_items: InventoryItem[];
+    quantity_received: number;
+    date_received: string;
+    received_from: User;
+    delivered_items: InventoryItem[];
+    quantity_delivered: number;
+    date_delivered: string;
+    delivered_to: User;
+    created_by: User;
+    modified_by: User;
 }
