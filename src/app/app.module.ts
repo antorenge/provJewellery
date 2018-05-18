@@ -16,6 +16,7 @@ import { DeliveryService } from './delivery/services/delivery.service';
 import { ValidationService } from './validation/services/validation.service';
 import { InventoryItemService } from './inventory-item/services/inventory-item.service';
 import { WipService } from './work-in-progress/services/wip.service';
+import { OwnershipService } from './ownership/services/ownership.service';
 
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,6 +26,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { ValidationComponent } from './validation/validation.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { InventoryItemComponent } from './inventory-item/inventory-item.component';
+import { OwnershipComponent } from './ownership/ownership.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { InventoryItemComponent } from './inventory-item/inventory-item.componen
     DeliveryComponent,
     ValidationComponent,
     WorkInProgressComponent,
-    InventoryItemComponent
+    InventoryItemComponent,
+    OwnershipComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { InventoryItemComponent } from './inventory-item/inventory-item.componen
     DeliveryService,
     ValidationService,
     InventoryItemService,
-    WipService
+    WipService,
+    OwnershipService
   ],
   bootstrap: [AppComponent]
 })
