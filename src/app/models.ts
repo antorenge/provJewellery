@@ -70,6 +70,15 @@ export class Supplier {
     location: Location;
 }
 
+export class PurchaseOrder {
+    code: string;
+    name: string;
+    workshop: Workshop;
+    products: PurchaseOrderProduct[];
+    due_date: string;
+    artisans: User[];
+}
+
 export class PurchaseOrderProduct {
     product: ProductDesign;
     quantity_ordered: number;
@@ -122,6 +131,18 @@ export class WorkInProgress {
     quantity_delivered: number;
     date_delivered: string;
     delivered_to: User;
+    created_by: User;
+    modified_by: User;
+}
+
+export class OwnershipTransfer {
+    order: PurchaseOrder;
+    items: InventoryItem[];
+    previous_owner: User;
+    current_owner: User;
+    date_transferred: string;
+    date_created: string;
+    date_modified: string;
     created_by: User;
     modified_by: User;
 }
