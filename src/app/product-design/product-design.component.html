@@ -9,7 +9,7 @@
   </div>
 
   <div class="ui sixteen wide column">
-    <div class="ui link cards">
+    <div class="ui cards">
       <div class="card" *ngFor="let design of designs">
         <div class="image">
           <img src="{{ design?.images[0]?.file }}">
@@ -20,8 +20,8 @@
             {{ design?.name }}
           </div>
         </div>
-        <div class="ui primary bottom attached button" (click)="saveToBlockchain(design)">
-          <i class="save icon"></i> Commit to Blockchain
+        <div class="extra content">
+          <div class="ui green bottom attached button" (click)="commitTransaction(design)">Commit to Blockchain</div>
         </div>
       </div>
     </div>
