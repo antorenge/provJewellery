@@ -9,7 +9,7 @@ export class ValidationService {
   constructor(public http: HttpClient) { }
 
   getValidations() {
-    const url = environment.baseUrl + 'validations/validations/';
+    const url = environment.baseUrl + 'validations/qa-validations/';
     return this.http.get<Validation[]>(url);
   }
 
