@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="ui grid container">
+
+  <div class="ui sixteen wide column">
+    <br>
+    <h1 class="ui header">Inventory Items</h1>
+    <p>Commit inventory items to blockchain secured storage</p>
+  </div>
+
+  <div class="ui sixteen wide column">
+    <div class="ui cards">
+      <div class="card" *ngFor="let item of items">
+        <div class="content">
+          <img class="right floated tiny ui image" src="{{ item?.product?.images[0]?.file }}">
+          <div class="header">
+            {{ item?.product?.sku }}
+          </div>
+          <div class="meta">
+            {{ item?.product?.name }}
+          </div>
+          <div class="description">
+            <p>Serial number:
+              <strong>{{ item?.serial_no }}</strong>
+            </p>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui green bottom attached button" (click)="commitTransaction(item)">Commit to Blockchain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
