@@ -11,6 +11,7 @@ import { SuiModule } from 'ng2-semantic-ui';
 import { Web3Service } from './services/web3.service';
 import { ProvJewelleryService } from './services/prov-jewellery.service';
 import { ProductDesignService } from './product-design/services/product-design.service';
+import { ArtisanProductionService } from './artisan-production/services/artisan-production.service';
 
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -42,7 +43,8 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
   providers: [
     Web3Service,
     ProvJewelleryService,
-    ProductDesignService
+    ProductDesignService,
+    ArtisanProductionService
   ],
   bootstrap: [AppComponent]
 })
