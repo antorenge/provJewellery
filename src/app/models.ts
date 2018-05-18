@@ -90,3 +90,10 @@ export class Delivery {
     delivered_by: User;
     received_by: User;
 }
+
+export class Validation {
+    item: string;
+    is_approved: boolean;
+    validated_by: User;
+    stage: string;
+}
