@@ -6,6 +6,7 @@ import { ProductDesignComponent } from './product-design/product-design.componen
 import { ArtisanProductionComponent } from './artisan-production/artisan-production.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { ValidationComponent } from './validation/validation.component';
+import { InventoryItemComponent } from './inventory-item/inventory-item.component';
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,5 +14,6 @@ export const AppRoutes: Routes = [
     { path: 'productions', component: ArtisanProductionComponent },
     { path: 'deliveries', component: DeliveryComponent },
     { path: 'validations', component: ValidationComponent },
+    { path: 'items', component: InventoryItemComponent },
 
 ];
