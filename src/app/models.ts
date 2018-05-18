@@ -101,7 +101,7 @@ export class Validation {
 export class InventoryItem {
     serial_no: string;
     product: ProductDesign;
-    delivery: number;
+    delivery: Delivery;
     wip: WorkInProgress;
 }
 
