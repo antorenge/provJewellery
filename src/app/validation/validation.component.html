@@ -1,3 +1,41 @@
-<p>
-  validation works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="ui grid container">
+
+  <div class="ui sixteen wide column">
+    <br>
+    <h1 class="ui header">Validations</h1>
+    <p>Commit validations to blockchain secured storage</p>
+  </div>
+
+  <div class="ui sixteen wide column">
+    <div class="ui cards">
+      <div class="card" *ngFor="let validation of validations">
+        <div class="content">
+          <img class="right floated tiny ui image" src="{{ validation?.item?.product?.images[0]?.file }}">
+          <div class="header">
+            {{ validation?.item?.product?.sku }}
+          </div>
+          <div class="meta">
+            {{ validation?.item?.product?.name }}
+          </div>
+          <div class="description">
+            <p>Is validated?:
+              <strong>{{ validation?.is_approved }}</strong>
+            </p>
+            <p>Validated by:
+              <strong>{{ validation?.validated_by?.first_name }} {{ validation?.validated_by?.last_name }}</strong>
+            </p>
+            <p>Stage:
+              <strong>{{ validation?.stage }}</strong>
+            </p>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui green bottom attached button" (click)="commitTransaction(validation)">Commit to Blockchain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
