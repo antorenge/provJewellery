@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDesign, SignedProductDesign, Jewellery, Delivery } from '../models';
+import { ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation } from '../models';
 import { ProductDesignService } from '../product-design/services/product-design.service';
 import { ProvJewelleryService } from '../services/prov-jewellery.service';
 
@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   serialNo: any;
   jewellery: Jewellery;
   delivery: Delivery;
+  artisanValidation: Validation;
+  wipValidation: Validation;
   signed = {};
   isLoading = false;
   isValidated: any;
@@ -25,12 +27,28 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Query smart contract with serial number
   searchJewelleryItem() {
-    // Query smart contract with serial number
+    // Get delivery details, incl. order, orderProduct, design, delivery info
     this.provJewelleryService.getItemDelivery(this.serialNo).subscribe(
       (data: string) => {
         const decoded = jwtDecode(data);
         this.delivery = decoded;
+      }, error => console.log(error));
+
+    // Get validation details
+    this.provJewelleryService.getItemProdValidation(this.serialNo).subscribe(
+      (data: string) => {
+        const decoded = jwtDecode(data);
+        console.log(decoded);
+        this.artisanValidation = decoded;
+      }, error => console.log(error));
+
+    this.provJewelleryService.getItemWipValidation(this.serialNo).subscribe(
+      (data: string) => {
+        const decoded = jwtDecode(data);
+        console.log(decoded);
+        this.wipValidation = decoded;
       }, error => console.log(error));
   }
 
