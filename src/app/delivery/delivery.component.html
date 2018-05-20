@@ -9,10 +9,10 @@
   </div>
 
   <div class="ui sixteen wide column">
-    <div class="ui cards">
+    <div class="ui three stackable cards">
       <div class="card" *ngFor="let delivery of deliveries">
         <div class="content">
-          <img class="right floated tiny ui image" src="{{ delivery?.po_product?.product?.images[0]?.file }}">
+          <img class="left floated tiny ui image" src="{{ delivery?.po_product?.product?.images[0]?.file }}">
           <div class="header">
             {{ delivery?.po_product?.product?.sku }}
           </div>
@@ -20,24 +20,44 @@
             {{ delivery?.po_product?.product?.name }}
           </div>
           <div class="description">
-            <p>Quantity delivered:
-              <strong>{{ delivery?.quantity_delivered }}</strong>
-            </p>
-            <p>Delivered by:
-              <strong>{{ delivery?.delivered_by?.first_name }} {{ delivery?.delivered_by?.last_name }}</strong>
-            </p>
-            <p>Date delivered:
-              <strong>{{ delivery?.date_delivered | date:'shortDate' }}</strong>
-            </p>
-            <p>Quantity received:
-              <strong>{{ delivery?.quantity_received }}</strong>
-            </p>
-            <p>Received by:
-              <strong>{{ delivery?.received_by?.first_name }} {{ delivery?.received_by?.last_name }}</strong>
-            </p>
-            <p>Date received:
-              <strong>{{ delivery?.date_received | date:'shortDate' }}</strong>
-            </p>
+
+            <sui-tabset>
+              <div class="ui top attached tabular menu">
+                <a class="item" suiTabHeader="1">Details</a>
+                <a class="item" suiTabHeader="2">Items</a>
+              </div>
+              <div class="ui bottom attached segment" suiTabContent="1">
+                <p>Purchase order:
+                  <strong>{{ delivery?.po_product?.order?.name }} ({{ delivery?.po_product?.order?.code }})</strong>
+                </p>
+                <p>Quantity delivered:
+                  <strong>{{ delivery?.quantity_delivered }}</strong>
+                </p>
+                <p>Delivered by:
+                  <strong>{{ delivery?.delivered_by?.first_name }} {{ delivery?.delivered_by?.last_name }}</strong>
+                </p>
+                <p>Date delivered:
+                  <strong>{{ delivery?.date_delivered | date:'shortDate' }}</strong>
+                </p>
+                <p>Quantity received:
+                  <strong>{{ delivery?.quantity_received }}</strong>
+                </p>
+                <p>Received by:
+                  <strong>{{ delivery?.received_by?.first_name }} {{ delivery?.received_by?.last_name }}</strong>
+                </p>
+                <p>Date received:
+                  <strong>{{ delivery?.date_received | date:'shortDate' }}</strong>
+                </p>
+              </div>
+              <div class="ui bottom attached segment" suiTabContent="2">
+                <ul class="ui list">
+                  <li class="item" *ngFor="let item of delivery?.items">
+                    {{ item?.serial_no }}
+                  </li>
+                </ul>
+              </div>
+            </sui-tabset>
+
           </div>
         </div>
         <div class="extra content">
