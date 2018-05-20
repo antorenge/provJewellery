@@ -23,9 +23,9 @@ export class WorkInProgressComponent implements OnInit {
     this.wipService.getWips().subscribe(data => {
       this.wips = data;
     }, error => console.log(error));
+
     // Get accounts
     this.getInitialAccount();
-
   }
 
   getInitialAccount() {
