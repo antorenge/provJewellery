@@ -124,6 +124,7 @@ export class Workshop {
 }
 
 export class WorkInProgress {
+    id: string;
     product: ProductDesign;
     workshop: Workshop;
     process: string;
