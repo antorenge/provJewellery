@@ -78,7 +78,6 @@ export class PurchaseOrder {
     workshop: Workshop;
     products: PurchaseOrderProduct[];
     due_date: string;
-    artisans: User[];
 }
 
 export class PurchaseOrderProduct {
@@ -106,9 +105,11 @@ export class Delivery {
 }
 
 export class Validation {
+    id: string;
     item: InventoryItem;
     is_approved: boolean;
     validated_by: User;
+    date_validated: string;
     stage: string;
 }
 
@@ -119,6 +120,7 @@ export class InventoryItem {
 export class Workshop {
     name: string;
     address: string;
+    artisans: User[];
 }
 
 export class WorkInProgress {
