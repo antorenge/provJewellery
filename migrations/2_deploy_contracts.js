@@ -1,5 +1,5 @@
-var ProductDesign = artifacts.require("./ProductDesign.sol");
+var ProvJewellery = artifacts.require("./ProvJewellery.sol");
 
 module.exports = function (deployer) {
-  deployer.deploy(ProductDesign);
+  deployer.deploy(ProvJewellery);
 };
