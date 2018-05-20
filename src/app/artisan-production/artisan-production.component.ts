@@ -24,9 +24,9 @@ export class ArtisanProductionComponent implements OnInit {
   }
 
   commitTransaction(prod: ArtisanProduction) {
-    this.provJewelleryService.setProduction().subscribe(data => {
-      console.log(data);
-    }, error => console.log(error));
+    // this.provJewelleryService.setProduction().subscribe(data => {
+    //   console.log(data);
+    // }, error => console.log(error));
   }
 
 }
