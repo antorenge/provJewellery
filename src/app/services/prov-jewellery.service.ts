@@ -15,18 +15,6 @@ export class ProvJewelleryService {
     this.provJewellery.setProvider(web3Service.web3.currentProvider);
   }
 
-  getJewelleryItem(serialNo: string): Observable<any> {
-    // Returns a merged observables jewellery item
-    return Observable.merge(
-      this.getItemDesign(serialNo),
-      this.getItemOrder(serialNo),
-      this.getItemOrderProduct(serialNo),
-      this.getItemDelivery(serialNo),
-      this.getItemValidations(serialNo),
-      this.getItemValueAddition(serialNo),
-      this.getItemOwnership(serialNo));
-  }
-
   setProductDesign(sku, signedDesign, account): Observable<any> {
     let design;
 
@@ -58,135 +46,6 @@ export class ProvJewelleryService {
           design = instance;
           // we use call here so the call doesn't try and write, making it free
           return design.getProductDesign.call(sku);
-        })
-        .then(value => {
-          observer.next(value);
-          observer.complete();
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e);
-        });
-    });
-  }
-
-  setItemDesign(serialNo, signedDesign, account): Observable<any> {
-    let design;
-
-    return Observable.create(observer => {
-      this.provJewellery
-        .deployed()
-        .then(instance => {
-          design = instance;
-          return design.setItemDesign(serialNo, signedDesign, { from: account });
-        })
-        .then(() => {
-          observer.next();
-          observer.next();
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e);
-        });
-    });
-  }
-
-  getItemDesign(serialNo): Observable<any> {
-    let design;
-
-    return Observable.create(observer => {
-      this.provJewellery
-        .deployed()
-        .then(instance => {
-          design = instance;
-          // we use call here so the call doesn't try and write, making it free
-          return design.getItemDesign.call(serialNo);
-        })
-        .then(value => {
-          observer.next(value);
-          observer.complete();
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e);
-        });
-    });
-  }
-
-  setItemOrder(serialNo, signedOrder, account): Observable<any> {
-    let order;
-
-    return Observable.create(observer => {
-      this.provJewellery
-        .deployed()
-        .then(instance => {
-          order = instance;
-          return order.setItemOrder(serialNo, signedOrder, { from: account });
-        })
-        .then(() => {
-          observer.next();
-          observer.next();
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e);
-        });
-    });
-  }
-
-  getItemOrder(serialNo): Observable<any> {
-    let order;
-
-    return Observable.create(observer => {
-      this.provJewellery
-        .deployed()
-        .then(instance => {
-          order = instance;
-          // we use call here so the call doesn't try and write, making it free
-          return order.getItemOrder.call(serialNo);
-        })
-        .then(value => {
-          observer.next(value);
-          observer.complete();
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e);
-        });
-    });
-  }
-
-  setItemOrderProduct(serialNo, signedOrderProduct, account): Observable<any> {
-    let orderProduct;
-
-    return Observable.create(observer => {
-      this.provJewellery
-        .deployed()
-        .then(instance => {
-          orderProduct = instance;
-          return orderProduct.setItemOrderProduct(serialNo, signedOrderProduct, { from: account });
-        })
-        .then(() => {
-          observer.next();
-          observer.next();
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e);
-        });
-    });
-  }
-
-  getItemOrderProduct(serialNo): Observable<any> {
-    let orderProduct;
-
-    return Observable.create(observer => {
-      this.provJewellery
-        .deployed()
-        .then(instance => {
-          orderProduct = instance;
-          // we use call here so the call doesn't try and write, making it free
-          return orderProduct.getItemOrderProduct.call(serialNo);
         })
         .then(value => {
           observer.next(value);
@@ -263,16 +122,38 @@ export class ProvJewelleryService {
     });
   }
 
-  getItemValidations(serialNo): Observable<any> {
-    let validations;
+  getItemProdValidation(serialNo): Observable<any> {
+    let validation;
 
     return Observable.create(observer => {
       this.provJewellery
         .deployed()
         .then(instance => {
-          validations = instance;
+          validation = instance;
           // we use call here so the call doesn't try and write, making it free
-          return validations.getItemValidations.call(serialNo);
+          return validation.getItemProdValidation.call(serialNo);
+        })
+        .then(value => {
+          observer.next(value);
+          observer.complete();
+        })
+        .catch(e => {
+          console.log(e);
+          observer.error(e);
+        });
+    });
+  }
+
+  getItemWipValidation(serialNo): Observable<any> {
+    let validation;
+
+    return Observable.create(observer => {
+      this.provJewellery
+        .deployed()
+        .then(instance => {
+          validation = instance;
+          // we use call here so the call doesn't try and write, making it free
+          return validation.getItemWipValidation.call(serialNo);
         })
         .then(value => {
           observer.next(value);
