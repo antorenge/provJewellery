@@ -20,9 +20,8 @@
             <p>Approved:
               <strong>{{ validation?.is_approved }}</strong>
             </p>
-            <p>Stage:
-              <strong>{{ validation?.stage }}</strong>
-            </p>
+            <div class="ui horizontal label" [ngClass]="{ 'pink': validation.stage ==='artisan_production', 'purple': validation.stage === 'in_house_wip' }">
+              {{ validation?.stage }}</div>
           </div>
         </div>
         <div class="extra content">
