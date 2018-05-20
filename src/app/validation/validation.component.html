@@ -10,21 +10,15 @@
 
   <div class="ui sixteen wide column">
     <div class="ui cards">
-      <div class="card" *ngFor="let validation of validations">
+      <div class="ui raised card" *ngFor="let validation of validations">
         <div class="content">
-          <img class="right floated tiny ui image" src="{{ validation?.item?.product?.images[0]?.file }}">
-          <div class="header">
-            {{ validation?.item?.product?.sku }}
-          </div>
+          <div class="header">{{ validation?.item?.serial_no }}</div>
           <div class="meta">
-            {{ validation?.item?.product?.name }}
+            <span class="category">Validated by: {{ validation?.validated_by?.first_name }} {{ validation?.validated_by?.last_name }}</span>
           </div>
           <div class="description">
-            <p>Is validated?:
+            <p>Approved:
               <strong>{{ validation?.is_approved }}</strong>
-            </p>
-            <p>Validated by:
-              <strong>{{ validation?.validated_by?.first_name }} {{ validation?.validated_by?.last_name }}</strong>
             </p>
             <p>Stage:
               <strong>{{ validation?.stage }}</strong>
@@ -35,6 +29,7 @@
           <div class="ui green bottom attached button" (click)="commitTransaction(validation)">Commit to Blockchain</div>
         </div>
       </div>
+
     </div>
   </div>
 
