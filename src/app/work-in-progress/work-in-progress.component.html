@@ -12,7 +12,7 @@
     <div class="ui cards">
       <div class="card" *ngFor="let wip of wips">
         <div class="content">
-          <img class="right floated tiny ui image" src="{{ wip?.product?.images[0]?.file }}">
+          <img class="left floated tiny ui image" src="{{ wip?.product?.images[0]?.file }}">
           <div class="header">
             {{ wip?.product?.sku }}
           </div>
@@ -20,9 +20,19 @@
             {{ wip?.product?.name }}
           </div>
           <div class="description">
-            <p>WIP artisan:
-              <strong>{{ wip?.created_by?.first_name }} {{ wip?.created_by?.last_name }}</strong>
+            <p>Workshop:
+              <strong>{{ wip?.workshop?.name }}</strong>
             </p>
+            <div class="ui list">
+              <div class="item" *ngFor="let artisan of wip?.workshop?.artisans">
+                <img class="ui avatar image" src="{{ artisan?.picture }}">
+                <div class="content">
+                  <a class="header">{{ artisan?.first_name }} {{ artisan?.last_name }}</a>
+                  <!-- <div class="description">{{ artisan?.gender }}</div> -->
+                </div>
+              </div>
+            </div>
+
             <sui-accordion-panel>
               <div title>
                 <i class="dropdown icon"></i>
@@ -31,7 +41,7 @@
               <div content>
                 <sui-tabset>
                   <div class="ui top attached tabular menu">
-                    <a class="item" suiTabHeader="1">Info</a>
+                    <a class="item" suiTabHeader="1">Details</a>
                     <a class="item" suiTabHeader="2">Items</a>
                   </div>
                   <div class="ui bottom attached segment" suiTabContent="1">
@@ -48,7 +58,7 @@
                   <div class="ui bottom attached segment" suiTabContent="2">
                     <ul class="ui list">
                       <li *ngFor="let item of wip?.received_items">
-                        {{ item?.product?.sku }} {{ item?.product?.name }}
+                        {{ item }}
                       </li>
                     </ul>
                   </div>
@@ -65,7 +75,7 @@
               <div content>
                 <sui-tabset>
                   <div class="ui top attached tabular menu">
-                    <a class="item" suiTabHeader="1">Info</a>
+                    <a class="item" suiTabHeader="1">Details</a>
                     <a class="item" suiTabHeader="2">Items</a>
                   </div>
                   <div class="ui bottom attached segment" suiTabContent="1">
@@ -82,7 +92,7 @@
                   <div class="ui bottom attached segment" suiTabContent="2">
                     <ul class="ui list">
                       <li *ngFor="let item of wip?.delivered_items">
-                        {{ item?.product?.sku }} {{ item?.product?.name }}
+                        {{ item }}
                       </li>
                     </ul>
                   </div>
