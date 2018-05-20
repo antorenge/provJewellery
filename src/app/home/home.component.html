@@ -7,8 +7,8 @@
     <h1 class="ui header">Prov Jewellery</h1>
     <p>Determine provenance for your handcrafted jewellery</p>
     <form id="search-form" class="ui action big input" [ngClass]="{ 'error': f.submitted && !s.valid }" #f="ngForm" novalidate
-      (ngSubmit)="f.form.valid && searchProductDesigns()">
-      <input type="text" name="searchInput" #s="ngModel" placeholder="Search by serial number..." [(ngModel)]="search" required>
+      (ngSubmit)="f.form.valid && searchJewelleryItem()">
+      <input type="text" name="searchInput" #s="ngModel" placeholder="Search by serial number..." [(ngModel)]="serialNo" required>
       <button type="submit" class="ui teal button">
         <i class="search icon"></i>
         Search
@@ -17,17 +17,17 @@
   </div>
 
   <div class="ui sixteen wide column">
-    <div class="ui raised segment grid" *ngFor="let design of designs">
+    <div class="ui raised segment grid" *ngIf="delivery">
 
       <div class="four wide column">
         <div class="ui card">
           <div class="image">
-            <img src="{{ design?.images[0]?.file }}">
+            <img src="{{ delivery?.po_product?.product?.images[0]?.file }}">
           </div>
           <div class="content">
-            <a class="header">{{ design?.sku }}</a>
+            <a class="header">{{ delivery?.po_product?.product?.sku }}</a>
             <div class="description">
-              {{ design?.name }}
+              {{ delivery?.po_product?.product?.name }}
             </div>
           </div>
 
@@ -40,70 +40,76 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">{{ design?.date_created | date:'medium' }}</p>
-              <h3>Product design</h3>
-              <h4>
-                <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
-                  (click)="validateDesign(design.sku)" [disabled]="isLoading">
-                  <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
-                  <i *ngIf="isValidated === 'yes'" class="check icon"></i>
-                  <i *ngIf="isValidated === 'no'" class="times icon"></i>
-
-                  <span *ngIf="!isValidated">Validate</span>
-                  <span *ngIf="isValidated === 'yes'">Valid</span>
-                  <span *ngIf="isValidated === 'no'">Not valid</span>
-
-                </button>
-              </h4>
+              <p class="timeline-event-thumbnail">{{ delivery?.po_product?.product?.date_created | date:'medium' }}</p>
+              <h3>Design
+                <span>
+                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
+                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
+                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
+                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
+                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
+                    <span *ngIf="!isValidated">Validate</span>
+                    <span *ngIf="isValidated === 'yes'">Valid</span>
+                    <span *ngIf="isValidated === 'no'">Not valid</span>
+                  </button>
+                </span>
+              </h3>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
-                  <a class="item" suiTabHeader="1">Product design specification</a>
-                  <a class="item" suiTabHeader="2">Bill of materials</a>
-                  <a class="item" suiTabHeader="3">Images</a>
-                  <a class="item" suiTabHeader="4">Drawings</a>
-                  <a class="item" suiTabHeader="5">Designers</a>
+                  <a class="item" suiTabHeader="1">Designers</a>
+                  <a class="item" suiTabHeader="2">Profile</a>
+                  <a class="item" suiTabHeader="3">Bill of materials</a>
+                  <a class="item" suiTabHeader="4">Images</a>
+                  <a class="item" suiTabHeader="5">Drawings</a>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="1">
-                  <p>Category:
-                    <strong>{{ design?.category }}</strong>
-                  </p>
-                  <p>Collection:
-                    <strong>{{ design?.collection }}</strong>
-                  </p>
-                  <p>Year:
-                    <strong>{{ design?.year }}</strong>
-                  </p>
-                  <p>Color:
-                    <strong>{{ design?.color }}</strong>
-                  </p>
-                  <p>Size:
-                    <strong>{{ design?.size }}</strong>
-                  </p>
+                  <div class="ui list">
+                    <div class="item" *ngFor="let designer of delivery?.po_product?.product?.designers">
+                      <img class="ui avatar image" src="{{ designer?.picture }}">
+                      <div class="content">
+                        <a class="header">{{ designer?.first_name }} {{ designer?.last_name }}</a>
+                        <!-- <div class="description">{{ designer?.gender }}</div> -->
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="2">
+                  <div class="description">
+                    <p>Category:
+                      <strong>{{ delivery?.po_product?.product?.category }}</strong>
+                    </p>
+                    <p>Collection:
+                      <strong>{{ delivery?.po_product?.product?.collection }}</strong>
+                    </p>
+                    <p>Year:
+                      <strong>{{ delivery?.po_product?.product?.year }}</strong>
+                    </p>
+                    <p>Color:
+                      <strong>{{ delivery?.po_product?.product?.color }}</strong>
+                    </p>
+                    <p>Size:
+                      <strong>{{ delivery?.po_product?.product?.size }}</strong>
+                    </p>
+                  </div>
+                </div>
+                <div class="ui bottom attached segment" suiTabContent="3">
                   <ul class="ui list">
-                    <li *ngFor="let bom of design.bill_of_materials">
+                    <li *ngFor="let bom of delivery?.po_product?.product?.bill_of_materials">
                       {{ bom?.material?.name }} ({{ bom?.quantity }} {{ bom?.material?.units_of_measurement }})
                     </li>
                   </ul>
                 </div>
-                <div class="ui bottom attached segment" suiTabContent="3">
-                  <div class="ui tiny images">
-                    <img class="ui image" *ngFor="let img of design?.images" src="{{ img?.file }}">
-                  </div>
-                </div>
                 <div class="ui bottom attached segment" suiTabContent="4">
                   <div class="ui tiny images">
-                    <img class="ui image" *ngFor="let drawing of design?.drawings" src="{{ drawing?.file }}">
+                    <img class="ui image" *ngFor="let img of delivery?.po_product?.product?.images" src="{{ img?.file }}">
                   </div>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="5">
-                  <ul class="ui list">
-                    <li *ngFor="let designer of design.designers">
-                      {{ designer.first_name }} {{ designer.last_name }}
-                    </li>
-                  </ul>
+                  <div class="ui tiny images">
+                    <img class="ui image" *ngFor="let drawing of delivery?.po_product?.product?.drawings" src="{{ drawing?.file }}">
+                  </div>
                 </div>
+
               </sui-tabset>
             </div>
           </li>
@@ -111,7 +117,7 @@
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">November 2009 - März 2011</p>
-              <h3>Artisan production</h3>
+              <h3>Production</h3>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
                   <a class="item" suiTabHeader="1">Quantities</a>
@@ -130,11 +136,15 @@
                   </ul>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="2">
-                  <ul class="ui list">
-                    <li *ngFor="let designer of design.designers">
-                      {{ designer.first_name }} {{ designer.last_name }}
-                    </li>
-                  </ul>
+                  <div class="ui list">
+                    <!-- <div class="item" *ngFor="let designer of design.designers">
+                      <img class="ui avatar image" src="{{ designer?.picture }}">
+                      <div class="content">
+                        <a class="header">{{ designer?.first_name }} {{ designer?.last_name }}</a>
+                        <div class="description">{{ designer?.gender }}</div>
+                      </div>
+                    </div> -->
+                  </div>
                 </div>
               </sui-tabset>
             </div>
@@ -143,7 +153,7 @@
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">April 2011 - heute</p>
-              <h3>Quality and Assurance Validation</h3>
+              <h3>Quality and Assurance</h3>
               <p>
                 <strong>Systemarchitektur, Consulting</strong>
                 <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
@@ -163,7 +173,7 @@
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">April 2011 - heute</p>
-              <h3>Title transfer</h3>
+              <h3>Ownership transfer</h3>
               <p>
                 <strong>Systemarchitektur, Consulting</strong>
                 <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
