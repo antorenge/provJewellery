@@ -91,4 +91,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  validateValidation(id: string) {
+    const key = id + 'v';
+    this.isLoading[key] = true;
+    const signedValidation = this.signedValidation[id];
+    const payload: SignedObject = {
+      id: id,
+      signed: signedValidation
+    };
+    this.deliveryService.validateSigned(payload).subscribe(data => {
+      this.isLoading[key] = false;
+      this.isValidated[key] = 'yes';
+    }, error => {
+      console.log(error);
+      this.isLoading[key] = false;
+      this.isValidated[key] = 'no';
+    });
+  }
+
 }

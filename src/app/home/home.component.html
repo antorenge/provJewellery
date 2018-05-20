@@ -118,19 +118,7 @@
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ delivery?.date_delivered | date:'medium' }}</p>
-              <h3>Production
-                <!-- <span>
-                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
-                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
-                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
-                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
-                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
-                    <span *ngIf="!isValidated">Validate</span>
-                    <span *ngIf="isValidated === 'yes'">Valid</span>
-                    <span *ngIf="isValidated === 'no'">Not valid</span>
-                  </button>
-                </span> -->
-              </h3>
+              <h3>Production</h3>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
                   <a class="item" suiTabHeader="1">Artisans</a>
@@ -172,17 +160,18 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ artisanValidation?.date_validated | date:'medium' }}</p>
               <h3>QA Production Validation
-                <!-- <span>
-                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
-                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
-                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
-                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
-                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
-                    <span *ngIf="!isValidated">Validate</span>
-                    <span *ngIf="isValidated === 'yes'">Valid</span>
-                    <span *ngIf="isValidated === 'no'">Not valid</span>
+                <span>
+                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading[artisanValidation?.id+'v'] && isValidated[artisanValidation?.id+'v'] === 'yes',
+                      'red': !isLoading[artisanValidation?.id+'v'] && isValidated[artisanValidation?.id+'v'] === 'no' }"
+                    (click)="validateValidation(artisanValidation?.id)" [disabled]="isLoading[artisanValidation?.id+'v']">
+                    <i *ngIf="isLoading[artisanValidation?.id+'v']" class="circle notch icon clockwise rotated"></i>
+                    <i *ngIf="isValidated[artisanValidation?.id+'v'] === 'yes'" class="check icon"></i>
+                    <i *ngIf="isValidated[artisanValidation?.id+'v'] === 'no'" class="times icon"></i>
+                    <span *ngIf="!isValidated[artisanValidation?.id+'v']">Validate</span>
+                    <span *ngIf="isValidated[artisanValidation?.id+'v'] === 'yes'">Valid</span>
+                    <span *ngIf="isValidated[artisanValidation?.id+'v'] === 'no'">Not valid</span>
                   </button>
-                </span> -->
+                </span>
               </h3>
 
               <div class="ui items">
@@ -268,17 +257,18 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ wipValidation?.date_validated | date:'medium' }}</p>
               <h3>QA WIP Validation
-                <!-- <span>
-                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
-                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
-                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
-                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
-                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
-                    <span *ngIf="!isValidated">Validate</span>
-                    <span *ngIf="isValidated === 'yes'">Valid</span>
-                    <span *ngIf="isValidated === 'no'">Not valid</span>
+                <span>
+                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading[wipValidation?.id+'v'] && isValidated[wipValidation?.id+'v'] === 'yes',
+                          'red': !isLoading[wipValidation?.id+'v'] && isValidated[wipValidation?.id+'v'] === 'no' }" (click)="validateValidation(wipValidation?.id)"
+                    [disabled]="isLoading[wipValidation?.id+'v']">
+                    <i *ngIf="isLoading[wipValidation?.id+'v']" class="circle notch icon clockwise rotated"></i>
+                    <i *ngIf="isValidated[wipValidation?.id+'v'] === 'yes'" class="check icon"></i>
+                    <i *ngIf="isValidated[wipValidation?.id+'v'] === 'no'" class="times icon"></i>
+                    <span *ngIf="!isValidated[wipValidation?.id+'v']">Validate</span>
+                    <span *ngIf="isValidated[wipValidation?.id+'v'] === 'yes'">Valid</span>
+                    <span *ngIf="isValidated[wipValidation?.id+'v'] === 'no'">Not valid</span>
                   </button>
-                </span> -->
+                </span>
               </h3>
 
               <div class="ui items">
