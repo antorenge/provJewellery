@@ -25,9 +25,9 @@
             <img src="{{ delivery?.po_product?.product?.images[0]?.file }}">
           </div>
           <div class="content">
-            <a class="header">{{ delivery?.po_product?.product?.sku }}</a>
+            <a class="header">{{ serialNo }}</a>
             <div class="description">
-              {{ delivery?.po_product?.product?.name }}
+              {{ delivery?.po_product?.product?.sku }} - {{ delivery?.po_product?.product?.name }}
             </div>
           </div>
 
