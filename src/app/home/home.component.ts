@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation, WorkInProgress } from '../models';
+import { ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation, WorkInProgress, OwnershipTransfer, SignedObject } from '../models';
 import { ProductDesignService } from '../product-design/services/product-design.service';
 import { ProvJewelleryService } from '../services/prov-jewellery.service';
+import { DeliveryService } from '../delivery/services/delivery.service';
 
 const jwtDecode = require('jwt-decode');
 
@@ -18,12 +19,16 @@ export class HomeComponent implements OnInit {
   artisanValidation: Validation;
   wipValidation: Validation;
   wip: WorkInProgress;
-  signed = {};
-  isLoading = false;
-  isValidated: any;
+  ownership: OwnershipTransfer;
+  signedDelivery = {};
+  signedValidation = {};
+  signedWIP = {};
+  signedOwnership = {};
+  isLoading = {};
+  isValidated = {};
 
-  constructor(private designService: ProductDesignService,
-    private provJewelleryService: ProvJewelleryService) { }
+  constructor(private provJewelleryService: ProvJewelleryService,
+    private deliveryService: DeliveryService) { }
 
   ngOnInit() {
   }
@@ -35,45 +40,54 @@ export class HomeComponent implements OnInit {
       (data: string) => {
         const decoded = jwtDecode(data);
         this.delivery = decoded;
+        this.signedDelivery[this.delivery.id] = data;
       }, error => console.log(error));
 
     // Get validation details
     this.provJewelleryService.getItemProdValidation(this.serialNo).subscribe(
       (data: string) => {
         const decoded = jwtDecode(data);
-        console.log(decoded);
         this.artisanValidation = decoded;
+        this.signedValidation[this.artisanValidation.id] = data;
       }, error => console.log(error));
 
     this.provJewelleryService.getItemWipValidation(this.serialNo).subscribe(
       (data: string) => {
         const decoded = jwtDecode(data);
-        console.log(decoded);
         this.wipValidation = decoded;
+        this.signedValidation[this.wipValidation.id] = data;
       }, error => console.log(error));
 
     this.provJewelleryService.getItemValueAddition(this.serialNo).subscribe(
       (data: string) => {
         const decoded = jwtDecode(data);
-        console.log(decoded);
         this.wip = decoded;
+        this.signedWIP[this.wip.id] = data;
+      }, error => console.log(error));
+
+    this.provJewelleryService.getItemOwnership(this.serialNo).subscribe(
+      (data: string) => {
+        const decoded = jwtDecode(data);
+        this.ownership = decoded;
+        this.signedOwnership[this.ownership.id] = data;
       }, error => console.log(error));
   }
 
-  validateDesign(sku: string) {
-    this.isLoading = true;
-    const signedDesign = this.signed[sku];
-    const payload: SignedProductDesign = {
-      sku: sku,
-      token: signedDesign
+  validateDelivery(id: string) {
+    const key = id + 'dy';
+    this.isLoading[key] = true;
+    const signedDelivery = this.signedDelivery[id];
+    const payload: SignedObject = {
+      id: id,
+      signed: signedDelivery
     };
-    this.designService.validateProductDesign(payload).subscribe(data => {
-      this.isLoading = false;
-      this.isValidated = 'yes';
+    this.deliveryService.validateSigned(payload).subscribe(data => {
+      this.isLoading[key] = false;
+      this.isValidated[key] = 'yes';
     }, error => {
       console.log(error);
-      this.isLoading = false;
-      this.isValidated = 'no';
+      this.isLoading[key] = false;
+      this.isValidated[key] = 'no';
     });
   }
 

@@ -43,14 +43,15 @@
               <p class="timeline-event-thumbnail">{{ delivery?.po_product?.product?.date_created | date:'medium' }}</p>
               <h3>Design
                 <span>
-                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
-                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
-                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
-                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
-                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
-                    <span *ngIf="!isValidated">Validate</span>
-                    <span *ngIf="isValidated === 'yes'">Valid</span>
-                    <span *ngIf="isValidated === 'no'">Not valid</span>
+                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading[delivery?.id+'dy'] && isValidated[delivery?.id+'dy'] === 'yes',
+                  'red': !isLoading[delivery?.id+'dy'] && isValidated[delivery?.id+'dy'] === 'no' }" (click)="validateDelivery(delivery?.id)"
+                    [disabled]="isLoading[delivery?.id+'dy']">
+                    <i *ngIf="isLoading[delivery?.id+'dy']" class="circle notch icon clockwise rotated"></i>
+                    <i *ngIf="isValidated[delivery?.id+'dy'] === 'yes'" class="check icon"></i>
+                    <i *ngIf="isValidated[delivery?.id+'dy'] === 'no'" class="times icon"></i>
+                    <span *ngIf="!isValidated[delivery?.id+'dy']">Validate</span>
+                    <span *ngIf="isValidated[delivery?.id+'dy'] === 'yes'">Valid</span>
+                    <span *ngIf="isValidated[delivery?.id+'dy'] === 'no'">Not valid</span>
                   </button>
                 </span>
               </h3>
@@ -63,7 +64,7 @@
                   <a class="item" suiTabHeader="5">Drawings</a>
                 </div>
                 <div class="ui bottom attached segment" suiTabContent="1">
-                  <div class="ui list">
+                  <div class="ui items">
                     <div class="item" *ngFor="let designer of delivery?.po_product?.product?.designers">
                       <img class="ui avatar image" src="{{ designer?.picture }}">
                       <div class="content">
@@ -118,7 +119,7 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ delivery?.date_delivered | date:'medium' }}</p>
               <h3>Production
-                <span>
+                <!-- <span>
                   <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
                     (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
                     <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
@@ -128,7 +129,7 @@
                     <span *ngIf="isValidated === 'yes'">Valid</span>
                     <span *ngIf="isValidated === 'no'">Not valid</span>
                   </button>
-                </span>
+                </span> -->
               </h3>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
@@ -140,7 +141,7 @@
                   <p>Workshop:
                     <strong>{{ delivery?.po_product?.order?.workshop?.name }}</strong>
                   </p>
-                  <div class="ui list">
+                  <div class="ui items">
                     <div class="item" *ngFor="let artisan of delivery?.po_product?.order?.workshop?.artisans">
                       <img class="ui avatar image" src="{{ artisan?.picture }}">
                       <div class="content">
@@ -171,7 +172,7 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ artisanValidation?.date_validated | date:'medium' }}</p>
               <h3>QA Production Validation
-                <span>
+                <!-- <span>
                   <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
                     (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
                     <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
@@ -181,7 +182,7 @@
                     <span *ngIf="isValidated === 'yes'">Valid</span>
                     <span *ngIf="isValidated === 'no'">Not valid</span>
                   </button>
-                </span>
+                </span> -->
               </h3>
 
               <div class="ui items">
@@ -211,7 +212,7 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ wip?.date_created | date:'medium' }}</p>
               <h3>Value addition
-                <span>
+                <!-- <span>
                   <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
                     (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
                     <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
@@ -221,7 +222,7 @@
                     <span *ngIf="isValidated === 'yes'">Valid</span>
                     <span *ngIf="isValidated === 'no'">Not valid</span>
                   </button>
-                </span>
+                </span> -->
               </h3>
               <sui-tabset>
                 <div class="ui top attached tabular menu">
@@ -233,7 +234,7 @@
                   <p>Workshop:
                     <strong>{{ wip?.workshop?.name }}</strong>
                   </p>
-                  <div class="ui list">
+                  <div class="ui items">
                     <div class="item" *ngFor="let artisan of wip?.workshop?.artisans">
                       <img class="ui avatar image" src="{{ artisan?.picture }}">
                       <div class="content">
@@ -267,7 +268,7 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">{{ wipValidation?.date_validated | date:'medium' }}</p>
               <h3>QA WIP Validation
-                <span>
+                <!-- <span>
                   <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
                     (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
                     <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
@@ -277,7 +278,7 @@
                     <span *ngIf="isValidated === 'yes'">Valid</span>
                     <span *ngIf="isValidated === 'no'">Not valid</span>
                   </button>
-                </span>
+                </span> -->
               </h3>
 
               <div class="ui items">
@@ -305,11 +306,42 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">April 2011 - heute</p>
-              <h3>Ownership transfer</h3>
-              <p>
-                <strong>Systemarchitektur, Consulting</strong>
-                <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
+              <p class="timeline-event-thumbnail">{{ ownership?.date_created | date:'medium' }}</p>
+              <h3>Ownership transfer
+                <!-- <span>
+                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
+                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
+                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
+                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
+                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
+                    <span *ngIf="!isValidated">Validate</span>
+                    <span *ngIf="isValidated === 'yes'">Valid</span>
+                    <span *ngIf="isValidated === 'no'">Not valid</span>
+                  </button>
+                </span> -->
+              </h3>
+
+              <div class="ui items">
+                <p>From:</p>
+                <div class="item">
+                  <img class="ui avatar image" src="{{ ownership?.previous_owner?.picture }}">
+                  <div class="content">
+                    <a class="header">{{ ownership?.previous_owner?.first_name }} {{ ownership?.previous_owner?.last_name }}</a>
+                  </div>
+                </div>
+                <p>To:</p>
+                <div class="item">
+                  <img class="ui avatar image" src="{{ ownership?.current_owner?.picture }}">
+                  <div class="content">
+                    <a class="header">{{ ownership?.current_owner?.first_name }} {{ ownership?.current_owner?.last_name }}</a>
+                  </div>
+                </div>
+              </div>
+
+              <p>Date transferred:
+                <strong>{{ ownership?.date_transferred | date:'medium' }}</strong>
+              </p>
+
             </div>
           </li>
         </ul>
