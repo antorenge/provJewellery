@@ -4,8 +4,8 @@
 
   <div class="ui sixteen wide column">
     <br>
-    <h1 class="ui header">Title transfer</h1>
-    <p>Commit title transfer transaction to blockchain secured storage</p>
+    <h1 class="ui header">Ownership transfer</h1>
+    <p>Commit ownership transfer transaction to blockchain secured storage</p>
   </div>
 
   <div class="ui sixteen wide column">
@@ -13,7 +13,7 @@
       <div class="card" *ngFor="let transfer of transfers">
         <div class="content">
           <div class="header">
-            Transfer for order {{ transfer?.order?.code }} {{ transfer?.order?.name }}
+            Ownership Transfer
           </div>
           <div class="description">
 
@@ -24,20 +24,19 @@
               </div>
               <div class="ui bottom attached segment" suiTabContent="1">
                 <p>Purchase order:
-                  <strong>{{ transfer?.order?.code }} {{ transfer?.order?.name }}</strong>
+                  <strong>{{ transfer?.order?.name }} ({{ transfer?.order?.code }})</strong>
                 </p>
                 <p>Previous owner:
-                  <strong>{{ transfer?.previous_owner }}</strong>
+                  <strong>{{ transfer?.previous_owner?.first_name }} {{ transfer?.previous_owner?.last_name }}</strong>
                 </p>
                 <p>Current owner:
-                  <strong>{{ transfer?.current_owner }}</strong>
+                  <strong>{{ transfer?.current_owner?.first_name }} {{ transfer?.current_owner?.last_name }}</strong>
                 </p>
               </div>
               <div class="ui bottom attached segment" suiTabContent="2">
                 <ul class="ui list">
                   <li *ngFor="let item of transfer.items">
-                    <strong>{{ item?.serial_no }}</strong>
-                    {{ item?.product?.sku }} {{ item?.product?.name }}
+                    {{ item?.serial_no }}
                   </li>
                 </ul>
               </div>
