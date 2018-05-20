@@ -45,12 +45,12 @@ export class ProductDesignComponent implements OnInit {
   commitTransaction(design: ProductDesign) {
     this.designService.getSignedProductDesign(design.sku).subscribe(data => {
       this.signedDesign = data;
-      this.setDesignBlockchain(this.signedDesign);
+      this.setDesignOnBlockchain(this.signedDesign);
     }, error => console.log(error));
   }
 
-  setDesignBlockchain(signedDesign: SignedProductDesign) {
-    this.provJewelleryService.setDesign(signedDesign.sku, signedDesign.token, this.account)
+  setDesignOnBlockchain(signedDesign: SignedProductDesign) {
+    this.provJewelleryService.setProductDesign(signedDesign.sku, signedDesign.token, this.account)
       .subscribe(data => {
         console.log(data);
       }, error => console.log(error));
