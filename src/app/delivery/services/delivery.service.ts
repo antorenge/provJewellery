@@ -18,4 +18,9 @@ export class DeliveryService {
     return this.http.get<SignedObject>(url);
   }
 
+  validateSigned(signed: SignedObject) {
+    const url = environment.baseUrl + 'purchases/validate';
+    return this.http.post(url, signed);
+  }
+
 }
