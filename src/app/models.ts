@@ -82,6 +82,7 @@ export class PurchaseOrder {
 }
 
 export class PurchaseOrderProduct {
+    order: PurchaseOrder;
     product: ProductDesign;
     quantity_ordered: number;
     unit_price: Money;
@@ -93,7 +94,9 @@ export class Money {
 }
 
 export class Delivery {
+    id: string;
     po_product: PurchaseOrderProduct;
+    items: InventoryItem[];
     quantity_delivered: number;
     quantity_received: number;
     date_delivered: string;
@@ -111,9 +114,6 @@ export class Validation {
 
 export class InventoryItem {
     serial_no: string;
-    product: ProductDesign;
-    delivery: Delivery;
-    wip: WorkInProgress;
 }
 
 export class Workshop {
@@ -147,4 +147,20 @@ export class OwnershipTransfer {
     date_modified: string;
     created_by: User;
     modified_by: User;
+}
+
+export class Jewellery {
+    serialNo: string;
+    design: ProductDesign;
+    order: PurchaseOrder;
+    orderProduct: PurchaseOrderProduct;
+    delivery: Delivery;
+    validations: Validation[];
+    valueAddition: WorkInProgress;
+    ownership: OwnershipTransfer;
+}
+
+export class SignedObject {
+    id: string;
+    signed: string;
 }
