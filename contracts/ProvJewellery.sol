@@ -11,9 +11,6 @@ contract ProvJewellery {
 
     struct Jewellery {
         string serialNo;
-        Record design;
-        Record order;
-        Record orderProduct;
         Record delivery;
         Record[] validations;
         Record valueAddition;
@@ -35,36 +32,6 @@ contract ProvJewellery {
             exists: true });
 
         return _sku;
-    }
-
-    function setItemDesign(string _serialNo, string _signedDesign)
-        public returns (string) {
-        // Add an items design to jewelleries list
-        jewelleries[_serialNo].design = Record({
-            id: _serialNo, object: _signedDesign, createdBy: msg.sender,
-            exists: true });
-
-        return _serialNo;
-    }
-
-    function setItemOrder(string _serialNo, string _signedOrder)
-        public returns (string) {
-        // Add an items order to jewelleries list
-        jewelleries[_serialNo].order = Record({
-            id: _serialNo, object: _signedOrder, createdBy: msg.sender,
-            exists: true });
-
-        return _serialNo;
-    }
-
-    function setItemOrderProduct(string _serialNo, string _signedOrderProduct)
-        public returns (string) {
-        // Add an items order product to jewelleries list
-        jewelleries[_serialNo].orderProduct = Record({
-            id: _serialNo, object: _signedOrderProduct, createdBy: msg.sender,
-            exists: true });
-
-        return _serialNo;
     }
 
     function setItemDelivery(string _serialNo, string _signedDelivery)
@@ -111,28 +78,19 @@ contract ProvJewellery {
         return designs[_sku].object;
     }
 
-    function getItemDesign(string _serialNo) public view returns (string) {
-        return jewelleries[_serialNo].design.object;
-    }
-
-    function getItemOrder(string _serialNo) public view returns (string) {
-        return jewelleries[_serialNo].order.object;
-    }
-
-    function getItemOrderProduct(string _serialNo)
-        public view returns (string) {
-        return jewelleries[_serialNo].orderProduct.object;
-    }
-
     function getItemDelivery(string _serialNo)
         public view returns (string) {
         return jewelleries[_serialNo].delivery.object;
     }
 
-    function getItemValidations(string _serialNo)
-        public view returns (string prod, string wip) {
-        return (jewelleries[_serialNo].validations[0].object,
-            jewelleries[_serialNo].validations[1].object);
+    function getItemProdValidation(string _serialNo)
+        public view returns (string) {
+        return jewelleries[_serialNo].validations[0].object;
+    }
+
+    function getItemWipValidation(string _serialNo)
+        public view returns (string) {
+        return jewelleries[_serialNo].validations[1].object;
     }
 
     function getItemValueAddition(string _serialNo)
