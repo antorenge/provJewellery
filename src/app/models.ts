@@ -143,6 +143,7 @@ export class WorkInProgress {
 }
 
 export class OwnershipTransfer {
+    id: string;
     order: PurchaseOrder;
     items: InventoryItem[];
     previous_owner: User;
