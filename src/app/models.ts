@@ -136,7 +136,9 @@ export class WorkInProgress {
     quantity_delivered: number;
     date_delivered: string;
     delivered_to: User;
+    date_created: string;
     created_by: User;
+    date_modified: string;
     modified_by: User;
 }
 

@@ -133,7 +133,7 @@
               <sui-tabset>
                 <div class="ui top attached tabular menu">
                   <a class="item" suiTabHeader="1">Artisans</a>
-                  <a class="item" suiTabHeader="2">Quantities</a>
+                  <a class="item" suiTabHeader="2">Details</a>
                 </div>
 
                 <div class="ui bottom attached segment" suiTabContent="1">
@@ -153,18 +153,13 @@
 
                 <div class="ui bottom attached segment" suiTabContent="2">
                   <div class="description">
-                    <p>Delivered:
+                    <p>Quantity processed:
                       <strong>{{ delivery?.quantity_delivered }}</strong>
                     </p>
                     <p>Date delivered:
                       <strong>{{ delivery?.date_delivered | date:'medium' }}</strong>
                     </p>
-                    <p>Received:
-                      <strong>{{ delivery?.quantity_received }}</strong>
-                    </p>
-                    <p>Date received:
-                      <strong>{{ delivery?.date_received | date:'medium' }}</strong>
-                    </p>
+
                   </div>
                 </div>
 
@@ -214,11 +209,57 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">April 2011 - heute</p>
-              <h3>Value addition</h3>
-              <p>
-                <strong>Systemarchitektur, Consulting</strong>
-                <br>Konzeption und Modellierung von Systemen und APIs für Digital Publishing und Entitlement nach SOA</p>
+              <p class="timeline-event-thumbnail">{{ wip?.date_created | date:'medium' }}</p>
+              <h3>Value addition
+                <span>
+                  <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
+                    (click)="validateDesign(delivery?.po_product?.product?.sku)" [disabled]="isLoading">
+                    <i *ngIf="isLoading" class="circle notch icon clockwise rotated"></i>
+                    <i *ngIf="isValidated === 'yes'" class="check icon"></i>
+                    <i *ngIf="isValidated === 'no'" class="times icon"></i>
+                    <span *ngIf="!isValidated">Validate</span>
+                    <span *ngIf="isValidated === 'yes'">Valid</span>
+                    <span *ngIf="isValidated === 'no'">Not valid</span>
+                  </button>
+                </span>
+              </h3>
+              <sui-tabset>
+                <div class="ui top attached tabular menu">
+                  <a class="item" suiTabHeader="1">Artisans</a>
+                  <a class="item" suiTabHeader="2">Details</a>
+                </div>
+
+                <div class="ui bottom attached segment" suiTabContent="1">
+                  <p>Workshop:
+                    <strong>{{ wip?.workshop?.name }}</strong>
+                  </p>
+                  <div class="ui list">
+                    <div class="item" *ngFor="let artisan of wip?.workshop?.artisans">
+                      <img class="ui avatar image" src="{{ artisan?.picture }}">
+                      <div class="content">
+                        <a class="header">{{ artisan?.first_name }} {{ artisan?.last_name }}</a>
+                        <!-- <div class="description">{{ artisan?.gender }}</div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ui bottom attached segment" suiTabContent="2">
+                  <div class="description">
+                    <p>Quantity processed:
+                      <strong>{{ wip?.quantity_delivered }}</strong>
+                    </p>
+                    <p>Date delivered:
+                      <strong>{{ wip?.date_delivered | date:'medium' }}</strong>
+                    </p>
+                    <p>Process:
+                      <strong>{{ wip?.process }}</strong>
+                    </p>
+
+                  </div>
+                </div>
+
+              </sui-tabset>
             </div>
           </li>
           <li class="timeline-event">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation } from '../models';
+import { ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation, WorkInProgress } from '../models';
 import { ProductDesignService } from '../product-design/services/product-design.service';
 import { ProvJewelleryService } from '../services/prov-jewellery.service';
 
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   delivery: Delivery;
   artisanValidation: Validation;
   wipValidation: Validation;
+  wip: WorkInProgress;
   signed = {};
   isLoading = false;
   isValidated: any;
@@ -49,6 +50,13 @@ export class HomeComponent implements OnInit {
         const decoded = jwtDecode(data);
         console.log(decoded);
         this.wipValidation = decoded;
+      }, error => console.log(error));
+
+    this.provJewelleryService.getItemValueAddition(this.serialNo).subscribe(
+      (data: string) => {
+        const decoded = jwtDecode(data);
+        console.log(decoded);
+        this.wip = decoded;
       }, error => console.log(error));
   }
 
