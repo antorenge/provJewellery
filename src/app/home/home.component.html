@@ -169,7 +169,7 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">{{ artisanValidation?.date_validated }}</p>
+              <p class="timeline-event-thumbnail">{{ artisanValidation?.date_validated | date:'medium' }}</p>
               <h3>QA Production Validation
                 <span>
                   <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
@@ -265,7 +265,7 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">{{ wipValidation?.date_validated }}</p>
+              <p class="timeline-event-thumbnail">{{ wipValidation?.date_validated | date:'medium' }}</p>
               <h3>QA WIP Validation
                 <span>
                   <button class="ui mini basic button" [ngClass]="{ 'green': !isLoading && isValidated === 'yes', 'red': !isLoading && isValidated === 'no' }"
