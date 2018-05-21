@@ -31,12 +31,6 @@ export class VerifyService {
   }
 
   verify(address, hash, v, r, s): Observable<any> {
-    // console.log(address);
-    // console.log(hash);
-    // console.log(v);
-    // console.log(r);
-    // console.log(s);
-
     return Observable.create(observer => {
       this.validate
         .deployed()
