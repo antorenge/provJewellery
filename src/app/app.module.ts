@@ -9,6 +9,7 @@ import { AppRoutes } from './app.routes';
 import { SuiModule } from 'ng2-semantic-ui';
 
 import { Web3Service } from './services/web3.service';
+import { VerifyService } from './services/verify.service';
 import { ProvJewelleryService } from './services/prov-jewellery.service';
 import { ProductDesignService } from './product-design/services/product-design.service';
 import { ArtisanProductionService } from './artisan-production/services/artisan-production.service';
@@ -51,6 +52,7 @@ import { OwnershipComponent } from './ownership/ownership.component';
   ],
   providers: [
     Web3Service,
+    VerifyService,
     ProvJewelleryService,
     ProductDesignService,
     ArtisanProductionService,
