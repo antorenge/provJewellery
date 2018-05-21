@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation, WorkInProgress, OwnershipTransfer, SignedObject } from '../models';
+import {
+  ProductDesign, SignedProductDesign, Jewellery, Delivery, Validation,
+  WorkInProgress, OwnershipTransfer, SignedObject
+} from '../models';
 import { ProductDesignService } from '../product-design/services/product-design.service';
 import { ProvJewelleryService } from '../services/prov-jewellery.service';
 import { DeliveryService } from '../delivery/services/delivery.service';
@@ -89,6 +92,12 @@ export class HomeComponent implements OnInit {
       this.isLoading[key] = false;
       this.isValidated[key] = 'no';
     });
+
+    // const { v, r, s } = this.verifyService.computeVRS(d.signature);
+    //       this.verifyService.verify(this.account, d.hash, v, r, s).subscribe(
+    //         res => {
+    //           console.log(res);
+    //         }, error => console.log(error));
   }
 
   validateValidation(id: string) {
